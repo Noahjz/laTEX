@@ -1,14 +1,17 @@
-\documentclass[smallheadings,headsepline,12pt,a4paper]{scrartcl}
+\documentclass[headsepline,12pt,a4paper]{scrartcl}
 \usepackage{amsmath, amssymb}
 \linespread{1.3}
-
-
 \usepackage[ngerman]{babel}
 \usepackage[T1]{fontenc} 
-\usepackage{graphicx}
 \usepackage{times}
 \setlength{\parindent}{0cm}
 \usepackage[utf8]{inputenc}
+
+\makeatletter
+\def\myItem{%
+   \@ifnextchar[ \@myItem{\@noitemargtrue\@myItem[\@itemlabel]}}
+\def\@myItem[#1]{\item[#1]\mbox{}\\}
+\makeatother % Wir definieren uns hier eine sauberere myItem Funktion als \item[]
 
 \begin{document}
 
@@ -35,59 +38,84 @@
 \addcontentsline{toc}{section}{Logik}
 
 \begin{itemize}
-\item[Definition] 
-\item 	Eine Aussage, der wir einen Wahrheitsgehalt ( wahr oder falsch / w oder f zuordnen )
 
-\item[Negation] 
-\item 	Die Umkehrung dieser Aussage. Hat A den Wahrheitsgehalt W, dann hat $\neg$ A den Wahrheitsgehalt F. \\ 
+% myItem[] nur für Überschriften, Item für wichtige Paragraphen oder Highlighting
+% Auf genügend \\ achten und geeignete \newpage
 
-Weiterhin sind komplizierte Aussagen, komplizierter zu verneinen: Die Negation von A : Alle Franzosen essen Baguette ist $\neg$ A : Mindesten EIN Franzose ist Baguette. \\
+\myItem[Aussage] 
 
-\item[Aussagen negieren]
-\item Eine formale Aussage negieren, bedeutet ein Statement zu finden, das immer genau den gegensätzlichen Wahrheitswert hat. siehe oben\\
-\item Weiterhin kann man Aussagen simpel negieren: Es gibt keine Primzahl kleiner als 2. 
-\item Besser ist jedoch, sie positiv umzuformulieren: Jede Primzahl ist entweder gleich 2 oder größer als 2.
+Eine Aussage, der man eindeutig einen Wahrheitsgehalt wahr oder falsch zuordnen kann. \\
 
-\item[Negationsregeln]
-\item $$ \neg(\exists x )(P(x) = (\forall x) (\neg P (x)) $$ 
-\item Wenn etwas nicht existiert in einem bestimmten Intervall, können wir nämlich auch sagen, wo es existiert, oder wir können für alle x eine allgemeine Aussage treffen, zum Beispiel, dass es für alle x gilt, es existiert nicht. Genau das steht oben.
-\item  $$ \neg  (\forall x) ( P (x)) = (\exists x )(\neg P(x)$$ Hier sagen wir nun einfach, die Negation von für alle ist lediglich, dass es ein x gibt, für das die Eigenschaft nicht gilt.
-\item $$ \neg ( A \rightarrow B ) = ( A \wedge \neg B ) $$ 
-\item Hier wollen wir einfach feststellen, dass eine Kondition gegeben wird: " Wenn, dann " und die Negation dieser ist eine Aussage, die diese Kondition eindeutig bricht. Beispielsweise: \\
+\myItem[Negation]  
+
+Die Umkehrung dieser Aussage. Hat A den Wahrheitsgehalt W, dann hat $\neg$ A den Wahrheitsgehalt F. \\ 
+
+Weiterhin sind komplizierte Aussagen, komplizierter zu verneinen: Die Negation von $A$: \\
+ Alle Franzosen essen Baguette ist $\neg A$ : Mindestens EIN Franzose ist Baguette. 
+
+\myItem[Aussagen negieren]  
+
+ Eine formale Aussage negieren, bedeutet ein Statement zu finden, das immer genau den gegensätzlichen Wahrheitswert hat. siehe oben\\
+ Weiterhin kann man Aussagen simpel negieren: Es gibt keine Primzahl kleiner als 2. \\
+ Besser ist jedoch, sie positiv umzuformulieren: Jede Primzahl ist entweder gleich 2 oder größer als 2. \\
+
+\myItem[Negationsregeln]  
+
+$$ \neg(\exists x )(P(x) = (\forall x) (\neg P (x)) $$ 
+
+Wenn etwas nicht existiert in einem bestimmten Intervall, können wir nämlich auch sagen, wo es existiert, oder wir können für alle x eine allgemeine Aussage treffen, zum Beispiel, dass es für alle x gilt, es existiert nicht. Genau das steht oben.
+
+$$ \neg  (\forall x) ( P (x)) = (\exists x )(\neg P(x)$$ 
+
+Hier sagen wir nun einfach, die Negation von für alle ist lediglich, dass es ein x gibt, für das die Eigenschaft nicht gilt.
+
+$$ \neg ( A \rightarrow B ) = ( A \wedge \neg B ) $$ 
+
+Hier wollen wir einfach feststellen, dass eine Kondition gegeben wird: " Wenn, dann " und die Negation dieser ist eine Aussage, die diese Kondition eindeutig bricht. Beispielsweise: \\
+
 $A:=$ Wenn du mein Auto wäscht, gebe ich dir 10 Euro. \\
-$\neg A :=$ Du hast mein Auto gewaschen und ich gebe dir die 10 Euro nicht. Was ein Arsch. \\
-\item $ \neg (A \wedge B ) $ wird zu $ (\neg A \lor \neg B ) $ \\
-\item Dies wird deutlich an einem Beispiel: $A:=$ Ich trage einen Hut und einen Schal. \\
-$\neg A:=$ Ich trage nicht einen Hut und einen Schal. Dies bedeutet aber nur, dass er nicht beides trägt, nicht dass er vielleicht eins davon trägt. Deshalb können wir nur sagen: Er trägt keinen Hut oder er trägt keinen Schal.
-\item Umgedreht wird klar: $ \neg (A \lor B ) $ wird zu $ (\neg A \wedge \neg B ) $
-\item[Äquivalenz negieren]
-\item Eine Äquivalenz lässt sich so umformen: $$ A \leftrightarrow B =  ( A \rightarrow B ) \wedge ( B \rightarrow A ) $$
+
+$\neg A :=$ Du hast mein Auto gewaschen und ich gebe dir die 10 Euro nicht.\\
+$ \neg (A \wedge B ) $ wird zu $ (\neg A \lor \neg B ) $ \\
+Dies wird deutlich an einem Beispiel: $A:=$ Ich trage einen Hut und einen Schal. \\
+$\neg A:=$ Ich trage nicht einen Hut und einen Schal. Dies bedeutet aber nur, dass er nicht beides trägt, nicht dass er vielleicht eins davon trägt. Deshalb können wir nur sagen: Er trägt keinen Hut oder er trägt keinen Schal. \\
+Umgedreht wird klar: $ \neg (A \lor B ) $ wird zu $ (\neg A \wedge \neg B ) $
+
+\begin{center}
+\myItem[Äquivalenz negieren]
+\end{center}
+
+Eine Äquivalenz lässt sich so umformen: $$ A \leftrightarrow B =  ( A \rightarrow B ) \wedge ( B \rightarrow A ) $$
 Dies können wir mit uns bekannten Gesetzen umformen.
-\item $$ \neg ( A \rightarrow B ) \lor \neg ( B \rightarrow A ) $$
-\item $$ ( A \wedge \neg B ) \lor ( B \wedge \neg A ) $$
+ $$ \neg ( A \rightarrow B ) \lor \neg ( B \rightarrow A ) $$
+ $$ ( A \wedge \neg B ) \lor ( B \wedge \neg A ) $$
 
 
-\item[Junktionen]
-\item  Und wird mit $\wedge$ abgekürzt. ( Eselsbrücke, das Zeichen ist zur anderen Seite offen als das u.$\lor$ bezeichnet oder \\
+\myItem[Junktionen]
+  Und wird mit $\wedge$ abgekürzt. ( Eselsbrücke, das Zeichen ist zur anderen Seite offen als das u.$\lor$ bezeichnet oder \\
 
-\item[Quantoren] 
-\item 	$\exists$; bedeutet, dass es existiert ( gibt mindest eins davon ). $\exists$; $x : P(x)$ heißt, es gibt mindest ein $x$ für $P(x)$, sodass $P(x)$ wahr ist.\\
-\item     $\exists$ ! bedeutet es gibt \textbf{genau eins.} \\
-\item $\forall$ bedeutet "für alle" \\
+\myItem[Quantoren] 
+ $\exists$; bedeutet, dass es existiert ( gibt mindest eins davon ). $\exists$; $x : P(x)$ heißt, es gibt mindest ein $x$ für $P(x)$, sodass $P(x)$ wahr ist.\\
+ $\exists$ ! bedeutet es gibt \textbf{genau eins.} \\
+ $\forall$ bedeutet "für alle" \\
 
-\item[Implikation]
-\item $\rightarrow$ impliziert, oder in anderen Worten "aus A folgt B". Wir wissen, dass diese Aussage nur falsch sein kann, wenn A wahr ist und B falsch.\\
+\myItem[Implikation]
+ $\rightarrow$ impliziert, oder in anderen Worten "aus A folgt B". Wir wissen, dass diese Aussage nur falsch sein kann, wenn A wahr ist und B falsch.\\
 
-\item Umgekehrt ist die Gültigkeit von B notwendig für die Gültigkeit von A. In anderen Worten: Die Ungültigkeit von B impliziert die Ungültigkeit von A. $$ \neg B \rightarrow \neg A $$
+ Umgekehrt ist die Gültigkeit von B notwendig für die Gültigkeit von A. In anderen Worten: Die Ungültigkeit von B impliziert die Ungültigkeit von A. 
+ $$ \neg B \rightarrow \neg A $$
 
-\item $\leftrightarrow$ zeigt Äquivalenz, dass bedeutet aus A folgt B und aus B folgt A. A gilt genau dann, wenn B gilt und B gilt genau dann, wenn A gilt. Dies kann auch umgeschrieben werden als 
+ $\leftrightarrow$ zeigt Äquivalenz, dass bedeutet aus A folgt B und aus B folgt A. A gilt genau dann, wenn B gilt und B gilt genau dann, wenn A gilt. Dies kann auch umgeschrieben werden als 
 $$ ( A \rightarrow B ) \wedge ( B \rightarrow A ) $$ \\
 
-\item[Misc]
-\item x:=y bedeutet, x ist \textbf{per Definition} gleich y 
-\item  \textbf{" : " bedeutet so, dass gilt}
-\item OE oder o.B.d.A für : "Ohne Beschränkung der Allgemeinheit" bzw. "ohne Einschränkung"
-\item a|b für a teilt b
+\newpage
+
+\myItem[Misc]
+x:=y bedeutet, x ist \textbf{per Definition} gleich y \\
+" : " bedeutet: "sodass gilt" \\
+OE oder o.B.d.A für : "Ohne Beschränkung der Allgemeinheit" bzw. "ohne Einschränkung" und bedeutet soviel wie, es wird nur ein Fall gezeigt, aber die anderen Fälle funktionieren analog und ich spare mir hier Schreibarbeit. \\
+
+a|b für a teilt b \\
 
 
 \end{itemize}
@@ -97,66 +125,68 @@ $$ ( A \rightarrow B ) \wedge ( B \rightarrow A ) $$ \\
 
 \begin{itemize}
 
-\item[Menge]
-\item Eine Gruppe, Ansammlung ( eng. a set ) von Dingen. Kann alles sein. Es gibt eine leere Menge {} ( manchmal auch als durchgestrichene Null bezeichnet ). \\
-\item Ist $x$ ein Element der Menge $A$, so schreiben wir $x \in A$, was das gleiche ist wie $ A \in x $
-\item \textbf{ Man beachte, dass kein Element doppelt vorkommen darf in einer Menge}
+\myItem[Menge]
+Eine Gruppe, Ansammlung ( eng. a set ) von Dingen. Kann alles sein. Es gibt eine leere Menge {} ( manchmal auch als durchgestrichene Null bezeichnet ). \\
+ Ist $x$ ein Element der Menge $A$, so schreiben wir $x \in A$, was das gleiche ist wie $ A \in x $
+ \textbf{ Man beachte, dass kein Element doppelt vorkommen darf in einer Menge}
 
 
-\item[Nomenklatur]
-\item Auflisten der Elemente $$ M= \{a,b,c\} $$
-\item Beschreibung der Elemente durch Eigenschaften 
+\myItem[Nomenklatur]
+ Auflisten der Elemente $$ M= \{a,b,c\} $$
+ Beschreibung der Elemente durch Eigenschaften 
 $$ M= \{ x|E(x) \} $$ \\
-\item ( Elemente $x$, für die $E(x)$ wahr ist ) 
+ ( Elemente $x$, für die $E(x)$ wahr ist ) 
 
 
-\item[Zahlbereiche]
-\item Natürliche Zahlen $$ := \{1,2,3\} $$
-\item Natürliche Zahlen mit 0 $N_0$ $$ := \{0,1,2,3\} $$
-\item $Z$ $:= \{0,-1,1,-2,2,-3,3\}$ 
-\item $Q$ $:= \{\frac{m}{n}| m\in Z , n \in N \}$
-\item $\Re$ $:=$ ist die Menge der reelen Zahlen \\
+\myItem[Zahlbereiche]
+ Natürliche Zahlen $$ := \{1,2,3\} $$
+ Natürliche Zahlen mit 0 $N_0$ $$ := \{0,1,2,3\} $$
+ $Z$ $:= \{0,-1,1,-2,2,-3,3\}$ 
+ $Q$ $:= \{\frac{m}{n}| m\in Z , n \in N \}$
+ $\Re$ $:=$ ist die Menge der reelen Zahlen \\
 
-\item[Teilmenge]
-\item $A$ ist eine Teilmenge von $B$ ($A \subset B $), wenn aus $ x \in  A $ $\rightarrow$ $ x \in B $. Dementsprechend, ist die negierte Form davon, wenn es ein Element gibt, welches in A liegt, aber nicht in B : $ x : x \in A : x \not \in B$ \\
-\item Somit ist eine Teilmenge wirklich eine kleine Portion aus einer Gruppe. Jedoch muss diese kleine Gruppe komplett in B liegen!
-\item Eine Teilmenge, wo A nicht gleich B ist, wird notiert mit $$ A \subseteq B $$ \textbf{wo der untere Strich durchgestrichen ist,um zu zeigen, dass sie nicht gleich sind}
-\item Eine Teilmenge, wo A eine kleinere oder die gleiche Menge sein kann wird denotiert mit $$ A \subset B $$  \\
-\item Offenbar gilt für Mengen A,B : $ A = B \leftrightarrow A \subseteq B $ und $ B \subseteq A $
-\item Um zu zeigen, dass $ A = B $ ist, zeigt man, jedes Element in A liegt in B und jedes Element in B liegt in A. Die leere Menge ist Teilmenge jeder Menge.\\
+\myItem[Teilmenge]
+ $A$ ist eine Teilmenge von $B$ ($A \subset B $), wenn aus $ x \in  A $ $\rightarrow$ $ x \in B $. Dementsprechend, ist die negierte Form davon, wenn es ein Element gibt, welches in A liegt, aber nicht in B : $ x : x \in A : x \not \in B$ \\
+ Somit ist eine Teilmenge wirklich eine kleine Portion aus einer Gruppe. Jedoch muss diese kleine Gruppe komplett in B liegen!
+ Eine Teilmenge, wo A nicht gleich B ist, wird notiert mit $$ A \subseteq B $$ \textbf{wo der untere Strich durchgestrichen ist,um zu zeigen, dass sie nicht gleich sind}
+ Eine Teilmenge, wo A eine kleinere oder die gleiche Menge sein kann wird denotiert mit $$ A \subset B $$  \\
+ Offenbar gilt für Mengen A,B : $ A = B \leftrightarrow A \subseteq B $ und $ B \subseteq A $
+ Um zu zeigen, dass $ A = B $ ist, zeigt man, jedes Element in A liegt in B und jedes Element in B liegt in A. Die leere Menge ist Teilmenge jeder Menge.\\
 
 
-\item[Durchschnitt]
-\item Demnach ist der Durchschnitt zweier Mengen $A$ und $B$ \\
+\myItem[Durchschnitt]
+ Demnach ist der Durchschnitt zweier Mengen $A$ und $B$ \\
 \begin{center}
 $ A \cap B := {x \in A \wedge x \in B } $
 \end{center}
 Also alle Elemente ( Teile der Gruppe ) die in A und in B liegen.
-\item Sie waeren disjunkt, wenn es keine gemeinsamen Elemente gibt, oder anders ausgedrueckt, der Durchschnitt die leere Menge ist
+ Sie waeren disjunkt, wenn es keine gemeinsamen Elemente gibt, oder anders ausgedrueckt, der Durchschnitt die leere Menge ist
 \begin{center}
 $ A \cap B = \not 0 $
 \end{center}
-\item X LIEGT IN A \textbf{ODER} in B 
+ X LIEGT IN A \textbf{ODER} in B 
 
-\item[Vereinigungsmenge]
-\item bezeichnet die Summe von zwei Mengen $ A \cup B $. Beispiel $$ A = {1,2,3} B = {4,5,6} $$
+\myItem[Vereinigungsmenge]
+ bezeichnet die Summe von zwei Mengen $ A \cup B $. Beispiel $$ A = {1,2,3} B = {4,5,6} $$
 $$ A \cup B = {1,2,3,4,5,6} $$
-\item X LIEGT IN A ODER IN B 
+ X LIEGT IN A ODER IN B 
 
-\item[Disjunkte]
-\item[Vereinigungsmenge] 
-\item 
-\item bezeichnet die Vereinigungsmenge zweier Mengen, ohne die Schnittmenge. Quasi : 
+\begin{center}
+\myItem[Disjunkte]
+\myItem[Vereinigungsmenge] 
+\end{center}
+ 
+bezeichnet die Vereinigungsmenge zweier Mengen, ohne die Schnittmenge. Quasi : 
 $$ A \cup B - A \cap B $$ \\
 
-\item[Differenz]
-\item Die Differenz zweier Mengen ist definiert als $$ A / B := { x : x \in A \wedge \not \in B} $$
+\myItem[Differenz]
+ Die Differenz zweier Mengen ist definiert als $$ A / B := { x : x \in A \wedge \not \in B} $$
 Ein Element von x, sodass x in A ist UND nicht in B.\\
-\item Im Fall $ B \subseteq A $ nennt man $A \ B$ auch das \textbf{Komplement} von B in A und schreibt $C_a(B) = A \ B$
+ Im Fall $ B \subseteq A $ nennt man $A \ B$ auch das \textbf{Komplement} von B in A und schreibt $C_a(B) = A \ B$
  
 
-\item[Potenzmenge]
-\item $P$(griechisches P)$(M):= {A: A \subset M}$. Das bedeutet im Klartext, alle Teilmengen von A aufzulisten. Quasi ist M die Menge aller Teilmengen von A. Dazu gehoert auch die leere Menge. Beispiel:
+\myItem[Potenzmenge]
+ $P$(griechisches P)$(M):= {A: A \subset M}$. Das bedeutet im Klartext, alle Teilmengen von A aufzulisten. Quasi ist M die Menge aller Teilmengen von A. Dazu gehoert auch die leere Menge. Beispiel:
 
 $$ Potenzmenge von A:= {1,2,3} = {\not 0, 1,2,3, {1,3},{1,2}, {2,3},{1,2,3} }$$ \textbf{Hier sollten eigentlich geschweifte Klammern stehen!}
 
@@ -164,8 +194,8 @@ Aus der Kombinatorik laesst sich ableiten, dass die Anzahl ( Maechtigkeit ) der 
 
 Deshalb gilt$ | P(A) |= 2^{|A|} $\\
 
-\item[Kartesisches Produkt]
-\item Das kartesiche Produkt ist die Menge, die man bekommt, wenn man alle Elemente der ersten Menge jeweils mit allen Elementen der zweiten Menge in einem Tupel verknuepft. Beispielsweise: 
+\myItem[Kartesisches Produkt]
+ Das kartesiche Produkt ist die Menge, die man bekommt, wenn man alle Elemente der ersten Menge jeweils mit allen Elementen der zweiten Menge in einem Tupel verknuepft. Beispielsweise: 
 
 $$ A := \{1,2\} B:= \{1,2,3\}  $$
 $$ A x B = \{ \{1,1\} \{1,2\} \{1,3\} \{2,1\} \{2,2\} \{2,3\} \} $$
@@ -176,19 +206,12 @@ Das kartesische Produkt mit der leeren Menge ergibt wieder die leere Menge, da k
 
 Es gilt keine Kommutivitaet (  $ A x B \neq B x A $ ), und keine Assoziativitaet.
 
-
-\item[Abgeschlossen]
-\item[Offen]
-\item Abgeschlossen sind Intervalle der Form $[a,b]$ , wo gilt $[a,b]:= \{x\in \Re : a \leq x \leq b\}$
-\item Offen sind Intervalle der Form $(a,b)$ , wo gilt $(a,b):= \{x\in \Re : a < x < b\}$
-\item Kompakt nennen wir Intervalle, wenn sie abgeschlossen und beschraenkt sind. Also alle abgeschlossenen bis auf $ [3,\infty] $
-
-
-
-
-
-
-
+\begin{center}
+\myItem[Abgeschlossene und offene Intervalle]
+\end{center}
+ Abgeschlossen sind Intervalle der Form $[a,b]$ , wo gilt $[a,b]:= \{x\in \Re : a \leq x \leq b\}$
+ Offen sind Intervalle der Form $(a,b)$ , wo gilt $(a,b):= \{x\in \Re : a < x < b\}$
+ Kompakt nennen wir Intervalle, wenn sie abgeschlossen und beschraenkt sind. Also alle abgeschlossenen bis auf $ [3,\infty] $
 
 \end{itemize}
 
