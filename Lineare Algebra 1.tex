@@ -1,27 +1,22 @@
-\documentclass[smallheadings,12pt,a4paper]{scrartcl}
+\documentclass[headsepline,12pt,a4paper]{scrartcl}
 \usepackage{amsmath, amssymb}
 \linespread{1.3}
-
 \usepackage[ngerman]{babel}
 \usepackage[T1]{fontenc} 
-\usepackage{graphicx}
 \usepackage{times}
 \setlength{\parindent}{0cm}
 \usepackage[utf8]{inputenc}
 
 \makeatletter
-\newcommand\xleftrightarrow[2][]{%
-  \ext@arrow 9999{\longleftrightarrowfill@}{#1}{#2}}
-\newcommand\longleftrightarrowfill@{%
-  \arrowfill@\leftarrow\relbar\rightarrow}
-\makeatother
+\def\myItem{%
+   \@ifnextchar[ \@myItem{\@noitemargtrue\@myItem[\@itemlabel]}}
+\def\@myItem[#1]{\item[#1]\mbox{}\\}
+\makeatother % Wir definieren uns hier eine sauberere myItem Funktion als \item[]
 
 \begin{document}
 
 \begin{titlepage}
 	\centering
-	{\scshape\Large Niemansland\par}
-	\vspace{1.5cm}
 	{\huge\bfseries Lineare Algreba 1\par}
 	\vspace{2cm}
 	{\Large\itshape Noah J. Zimmermann\par}
