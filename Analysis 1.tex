@@ -1,0 +1,1139 @@
+\documentclass[smallheadings,headsepline,12pt,a4paper]{scrartcl}
+\usepackage{amsmath, amssymb}
+\linespread{1.3}
+
+
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc} 
+\usepackage{graphicx}
+\usepackage{times}
+\setlength{\parindent}{0cm}
+\usepackage[utf8]{inputenc}
+
+\begin{document}
+
+\begin{titlepage}
+	\centering
+	{\huge\bfseries Analysis 1\par}
+	\vspace{2cm}
+	{\Large\itshape Noah J. Zimmermann\par}
+	\vfill
+	supervised by\par
+	 \textsc{x}
+
+	\vfill
+
+% Bottom of the page
+	{\large Wintersemester 2016/17\par}
+\end{titlepage}
+
+\tableofcontents
+
+\newpage
+
+\section*{Logik}
+\addcontentsline{toc}{section}{Logik}
+
+\begin{itemize}
+\item[Definition] 
+\item 	Eine Aussage, der wir einen Wahrheitsgehalt ( wahr oder falsch / w oder f zuordnen )
+
+\item[Negation] 
+\item 	Die Umkehrung dieser Aussage. Hat A den Wahrheitsgehalt W, dann hat $\neg$ A den Wahrheitsgehalt F. \\ 
+
+Weiterhin sind komplizierte Aussagen, komplizierter zu verneinen: Die Negation von A : Alle Franzosen essen Baguette ist $\neg$ A : Mindesten EIN Franzose ist Baguette. \\
+
+\item[Aussagen negieren]
+\item Eine formale Aussage negieren, bedeutet ein Statement zu finden, das immer genau den gegensätzlichen Wahrheitswert hat. siehe oben\\
+\item Weiterhin kann man Aussagen simpel negieren: Es gibt keine Primzahl kleiner als 2. 
+\item Besser ist jedoch, sie positiv umzuformulieren: Jede Primzahl ist entweder gleich 2 oder größer als 2.
+
+\item[Negationsregeln]
+\item $$ \neg(\exists x )(P(x) = (\forall x) (\neg P (x)) $$ 
+\item Wenn etwas nicht existiert in einem bestimmten Intervall, können wir nämlich auch sagen, wo es existiert, oder wir können für alle x eine allgemeine Aussage treffen, zum Beispiel, dass es für alle x gilt, es existiert nicht. Genau das steht oben.
+\item  $$ \neg  (\forall x) ( P (x)) = (\exists x )(\neg P(x)$$ Hier sagen wir nun einfach, die Negation von für alle ist lediglich, dass es ein x gibt, für das die Eigenschaft nicht gilt.
+\item $$ \neg ( A \rightarrow B ) = ( A \wedge \neg B ) $$ 
+\item Hier wollen wir einfach feststellen, dass eine Kondition gegeben wird: " Wenn, dann " und die Negation dieser ist eine Aussage, die diese Kondition eindeutig bricht. Beispielsweise: \\
+$A:=$ Wenn du mein Auto wäscht, gebe ich dir 10 Euro. \\
+$\neg A :=$ Du hast mein Auto gewaschen und ich gebe dir die 10 Euro nicht. Was ein Arsch. \\
+\item $ \neg (A \wedge B ) $ wird zu $ (\neg A \lor \neg B ) $ \\
+\item Dies wird deutlich an einem Beispiel: $A:=$ Ich trage einen Hut und einen Schal. \\
+$\neg A:=$ Ich trage nicht einen Hut und einen Schal. Dies bedeutet aber nur, dass er nicht beides trägt, nicht dass er vielleicht eins davon trägt. Deshalb können wir nur sagen: Er trägt keinen Hut oder er trägt keinen Schal.
+\item Umgedreht wird klar: $ \neg (A \lor B ) $ wird zu $ (\neg A \wedge \neg B ) $
+\item[Äquivalenz negieren]
+\item Eine Äquivalenz lässt sich so umformen: $$ A \leftrightarrow B =  ( A \rightarrow B ) \wedge ( B \rightarrow A ) $$
+Dies können wir mit uns bekannten Gesetzen umformen.
+\item $$ \neg ( A \rightarrow B ) \lor \neg ( B \rightarrow A ) $$
+\item $$ ( A \wedge \neg B ) \lor ( B \wedge \neg A ) $$
+
+
+\item[Junktionen]
+\item  Und wird mit $\wedge$ abgekürzt. ( Eselsbrücke, das Zeichen ist zur anderen Seite offen als das u.$\lor$ bezeichnet oder \\
+
+\item[Quantoren] 
+\item 	$\exists$; bedeutet, dass es existiert ( gibt mindest eins davon ). $\exists$; $x : P(x)$ heißt, es gibt mindest ein $x$ für $P(x)$, sodass $P(x)$ wahr ist.\\
+\item     $\exists$ ! bedeutet es gibt \textbf{genau eins.} \\
+\item $\forall$ bedeutet "für alle" \\
+
+\item[Implikation]
+\item $\rightarrow$ impliziert, oder in anderen Worten "aus A folgt B". Wir wissen, dass diese Aussage nur falsch sein kann, wenn A wahr ist und B falsch.\\
+
+\item Umgekehrt ist die Gültigkeit von B notwendig für die Gültigkeit von A. In anderen Worten: Die Ungültigkeit von B impliziert die Ungültigkeit von A. $$ \neg B \rightarrow \neg A $$
+
+\item $\leftrightarrow$ zeigt Äquivalenz, dass bedeutet aus A folgt B und aus B folgt A. A gilt genau dann, wenn B gilt und B gilt genau dann, wenn A gilt. Dies kann auch umgeschrieben werden als 
+$$ ( A \rightarrow B ) \wedge ( B \rightarrow A ) $$ \\
+
+\item[Misc]
+\item x:=y bedeutet, x ist \textbf{per Definition} gleich y 
+\item  \textbf{" : " bedeutet so, dass gilt}
+\item OE oder o.B.d.A für : "Ohne Beschränkung der Allgemeinheit" bzw. "ohne Einschränkung"
+\item a|b für a teilt b
+
+
+\end{itemize}
+
+\section*{Mengenlehre}
+\addcontentsline{toc}{section}{Mengenlehre}
+
+\begin{itemize}
+
+\item[Menge]
+\item Eine Gruppe, Ansammlung ( eng. a set ) von Dingen. Kann alles sein. Es gibt eine leere Menge {} ( manchmal auch als durchgestrichene Null bezeichnet ). \\
+\item Ist $x$ ein Element der Menge $A$, so schreiben wir $x \in A$, was das gleiche ist wie $ A \in x $
+\item \textbf{ Man beachte, dass kein Element doppelt vorkommen darf in einer Menge}
+
+
+\item[Nomenklatur]
+\item Auflisten der Elemente $$ M= \{a,b,c\} $$
+\item Beschreibung der Elemente durch Eigenschaften 
+$$ M= \{ x|E(x) \} $$ \\
+\item ( Elemente $x$, für die $E(x)$ wahr ist ) 
+
+
+\item[Zahlbereiche]
+\item Natürliche Zahlen $$ := \{1,2,3\} $$
+\item Natürliche Zahlen mit 0 $N_0$ $$ := \{0,1,2,3\} $$
+\item $Z$ $:= \{0,-1,1,-2,2,-3,3\}$ 
+\item $Q$ $:= \{\frac{m}{n}| m\in Z , n \in N \}$
+\item $\Re$ $:=$ ist die Menge der reelen Zahlen \\
+
+\item[Teilmenge]
+\item $A$ ist eine Teilmenge von $B$ ($A \subset B $), wenn aus $ x \in  A $ $\rightarrow$ $ x \in B $. Dementsprechend, ist die negierte Form davon, wenn es ein Element gibt, welches in A liegt, aber nicht in B : $ x : x \in A : x \not \in B$ \\
+\item Somit ist eine Teilmenge wirklich eine kleine Portion aus einer Gruppe. Jedoch muss diese kleine Gruppe komplett in B liegen!
+\item Eine Teilmenge, wo A nicht gleich B ist, wird notiert mit $$ A \subseteq B $$ \textbf{wo der untere Strich durchgestrichen ist,um zu zeigen, dass sie nicht gleich sind}
+\item Eine Teilmenge, wo A eine kleinere oder die gleiche Menge sein kann wird denotiert mit $$ A \subset B $$  \\
+\item Offenbar gilt für Mengen A,B : $ A = B \leftrightarrow A \subseteq B $ und $ B \subseteq A $
+\item Um zu zeigen, dass $ A = B $ ist, zeigt man, jedes Element in A liegt in B und jedes Element in B liegt in A. Die leere Menge ist Teilmenge jeder Menge.\\
+
+
+\item[Durchschnitt]
+\item Demnach ist der Durchschnitt zweier Mengen $A$ und $B$ \\
+\begin{center}
+$ A \cap B := {x \in A \wedge x \in B } $
+\end{center}
+Also alle Elemente ( Teile der Gruppe ) die in A und in B liegen.
+\item Sie waeren disjunkt, wenn es keine gemeinsamen Elemente gibt, oder anders ausgedrueckt, der Durchschnitt die leere Menge ist
+\begin{center}
+$ A \cap B = \not 0 $
+\end{center}
+\item X LIEGT IN A \textbf{ODER} in B 
+
+\item[Vereinigungsmenge]
+\item bezeichnet die Summe von zwei Mengen $ A \cup B $. Beispiel $$ A = {1,2,3} B = {4,5,6} $$
+$$ A \cup B = {1,2,3,4,5,6} $$
+\item X LIEGT IN A ODER IN B 
+
+\item[Disjunkte]
+\item[Vereinigungsmenge] 
+\item 
+\item bezeichnet die Vereinigungsmenge zweier Mengen, ohne die Schnittmenge. Quasi : 
+$$ A \cup B - A \cap B $$ \\
+
+\item[Differenz]
+\item Die Differenz zweier Mengen ist definiert als $$ A / B := { x : x \in A \wedge \not \in B} $$
+Ein Element von x, sodass x in A ist UND nicht in B.\\
+\item Im Fall $ B \subseteq A $ nennt man $A \ B$ auch das \textbf{Komplement} von B in A und schreibt $C_a(B) = A \ B$
+ 
+
+\item[Potenzmenge]
+\item $P$(griechisches P)$(M):= {A: A \subset M}$. Das bedeutet im Klartext, alle Teilmengen von A aufzulisten. Quasi ist M die Menge aller Teilmengen von A. Dazu gehoert auch die leere Menge. Beispiel:
+
+$$ Potenzmenge von A:= {1,2,3} = {\not 0, 1,2,3, {1,3},{1,2}, {2,3},{1,2,3} }$$ \textbf{Hier sollten eigentlich geschweifte Klammern stehen!}
+
+Aus der Kombinatorik laesst sich ableiten, dass die Anzahl ( Maechtigkeit ) der Elemente der Potenzmenge gleich der Anzahl der Kombinationen ist, wie man die Elemente anordnen kann. Die Position kuemmert uns nicht, deshalb nur Kombination, nicht Permutation.  \\
+
+Deshalb gilt$ | P(A) |= 2^{|A|} $\\
+
+\item[Kartesisches Produkt]
+\item Das kartesiche Produkt ist die Menge, die man bekommt, wenn man alle Elemente der ersten Menge jeweils mit allen Elementen der zweiten Menge in einem Tupel verknuepft. Beispielsweise: 
+
+$$ A := \{1,2\} B:= \{1,2,3\}  $$
+$$ A x B = \{ \{1,1\} \{1,2\} \{1,3\} \{2,1\} \{2,2\} \{2,3\} \} $$
+
+Das kartesische Koordinatensystem ist demnach $ R x R $ , wo alle reelen Zahlen als Element in den Tupeln auftauchen koennen. \\
+
+Das kartesische Produkt mit der leeren Menge ergibt wieder die leere Menge, da kein Element ausgewaehlt werden kann. \\
+
+Es gilt keine Kommutivitaet (  $ A x B \neq B x A $ ), und keine Assoziativitaet.
+
+
+\item[Abgeschlossen]
+\item[Offen]
+\item Abgeschlossen sind Intervalle der Form $[a,b]$ , wo gilt $[a,b]:= \{x\in \Re : a \leq x \leq b\}$
+\item Offen sind Intervalle der Form $(a,b)$ , wo gilt $(a,b):= \{x\in \Re : a < x < b\}$
+\item Kompakt nennen wir Intervalle, wenn sie abgeschlossen und beschraenkt sind. Also alle abgeschlossenen bis auf $ [3,\infty] $
+
+
+
+
+
+
+
+
+\end{itemize}
+
+\section*{Zahlenbereiche}
+\addcontentsline{toc}{section}{Zahlenbereiche}
+
+
+
+
+\itemize
+\item
+
+
+\item Die Natürlichen Zahlen seien durch die Peano Axiome gegeben, welche am besten online nachgelesen werden.
+\item $\mathbb{Z} := \{0, +-n , n \in \mathbb{N}\} $ Die negativen Zahlen sind definiert durch $n+(-n)=0$
+
+\begin{center}
+\item[Körper]
+\end{center}
+\item K heißt ein Körper, wenn folgende Axiome gelten:
+\begin{center}
+\item[Additiative Eigenschaften:] 
+\end{center}
+1. Assoziativität $ a+(b+c) = (a+b)+c $ \\
+2. Kommutativität $ a+b = b+a $ \\
+3. Neutrales Element ( 0 ) $ a+0=0$\\
+4. Zu jedem Element $a \in K $ existiert ein inverses Element a+ (-a)=0
+\begin{center}
+\item[Multiplikative Eigenschaften]
+\end{center}
+1. Assoziativität $ a*(b*c) = (a*b)*c $ \\
+2. Kommutativität $ a*b = b*a $ \\
+3. Neutrales Element, es gibt ein neutrales Element $ 1 \in K \ {0} : 1* a = a $\\
+4. Zu jedem Element $a \in K \ {0} $ existiert ein inverses Element \\
+( auch Kehrwert genannt )$a * a^{-1} = 1 $
+\begin{center}
+\item[Distributivgesetze]
+\end{center}
+\item $$ a*(b+c) = a*b + a*c $$
+$$ (a+b)*c = a*c + b*c $$ für alle $$a,b,c \in K $$
+\item Beispiele eines Körpers sind $ \mathbb{Q} , \mathbb{R} , \mathbb{C} $
+
+\item[$\mathbb{Q}$ als Körper]
+\item[Satz]
+\item Wir definieren auf $\mathbb{Q}$ einen Ordnung " $\leq $" durch $x \leq y \leftrightarrow \exists m \in \mathbb{N}_0 ; n \in \mathbb{N} $ sodass $ y-x = m/n $ \\
+Dann ist diese Ordnung mit der Addition und Multiplikation in Q im folgenden Sinne verträglich 
+\item (Add. Ordnung ( A O )) $ a \leq b \rightarrow a+c \leq b+c $
+\item ( M O ) $ 0 \leq a , 0 \leq b \rightarrow 0 \leq a*b $
+\item Bemerkung: $\{a \in Q : a = r/s ,  r \in \mathbb{N_0}, s\in \mathbb{N}\}=: \mathbb{Q}_+$
+
+\begin{center}
+\item[Abgeschlossene und offene Intervalle]
+\end{center}
+
+\item Abgeschlossen sind Intervalle der Form $[a,b]$ , wo gilt $[a,b]:= \{x\in \Re : a \leq x \leq b\}$
+\item Offen sind Intervalle der Form $(a,b)$ , wo gilt $(a,b):= \{x\in \Re : a < x < b\}$
+\item Kompakt nennen wir Intervalle, wenn sie abgeschlossen und beschraenkt sind. Also alle abgeschlossenen bis auf $ [3,\infty] $
+
+
+\item[Abzählbarkeit]
+\item Option (1) \textbf{A ist endlich} mit Anzahl $|A| = n$ Elemente ist äquivalent zu  \\
+$\begin{cases} A = \not 0 ;  n= 0 \\ \exists f: a \rightarrow \{1,...,n\}, $wobei $f$ injektiv ist  $\end{cases}$
+\item Option (2) A heißt abzählbar unendlich genau dann wenn ( $\leftrightarrow$ ) $ \exists f : A \rightarrow \mathbb{N} $ bijektiv ist
+\item A heißt überabzählbar genau dann wenn A weder endlich noch abzählbar unendlich ist. ( Nicht (1) oder (2) ). 
+\item Beispielsweise, ist der Betrag von $\mathbb{Q}$ gleich der Mächtigkeit von $\mathbb{N}$, da eine Bijektion gefunden werden kann, wenn akribisch mit dem Diagonalverfahren gearbeitet wird ( siehe Cantorsches Diagonalverfahren ).
+\item Bemerkung: Seien $M_1,M_2,M_n$ abzählbare Mengen, so ist das kartesische Produkt dieser eine abzählbare Menge.
+
+\begin{center}
+\item[Gleichmächtigkeit von Mengen]
+\end{center}
+\item Zwei Mengen $A,B$ heißen gleichmächtig $ |A| = |B| $, wenn es eine Bijektion zwischen den Mengen gibt.
+
+\newpage
+\begin{center}
+\item[Cantors Diagonalargument]
+\end{center}
+\item Wollen wir nun $\mathbb{R}$ und $\mathbb{N}$ vergleichen, dann lässt sich keine Bijektion finden. Somit ist $\mathbb{R}$ überabzählbar. Dies kann so gezeigt werden. Im folgenden Beispiel werden nun jeder natürlichen Zahl eine zufällige, aber einzigartige reele Zahl als Dezimalzahl dargestellt zugeordnet im beliebig gewählten Intervall $ 0 \geq x < 1 $ 
+
+\begin{equation} 
+ \begin{aligned} 
+  \mathbb{N} &\leftrightarrow \mathbb{R} \\ 
+     1 &\leftrightarrow 0.235634\\ 
+     2 &\leftrightarrow 0.524215\\
+     3&\leftrightarrow  0.523552\\
+     4&\leftrightarrow  0.644524\\
+     5&\leftrightarrow  0.683467\\
+     6&\leftrightarrow  0.623677\\
+     7&\leftrightarrow  0.623456\\
+ \end{aligned} 
+\end{equation}
+
+Nun wird eine diagonale Linie gebildet, um eine neue Diagonalzahl zu "erschaffen", welche noch nicht in der Liste ist. Jede fettgedruckte Zahl wird 0, sonst wird sie 1. 
+
+\begin{equation} 
+ \begin{aligned} 
+  \mathbb{N} &\leftrightarrow \mathbb{R} \\ 
+     1 &\leftrightarrow 0.\textbf{2}35634\\ 
+     2 &\leftrightarrow 0.5\textbf{2}4215\\
+     3&\leftrightarrow  0.52\textbf{3}552\\
+     4&\leftrightarrow  0.644\textbf{5}24\\
+     5&\leftrightarrow  0.6836\textbf{7}\\
+     6&\leftrightarrow  0.623677\\
+     7&\leftrightarrow  0.623456\\
+ \end{aligned} 
+\end{equation}
+
+\newpage
+
+
+Demnach ist unsere neue Zahl $ 0.00010... $ und so weiter. Da unsere neue Zahl in der ersten Zuordnung anders ist als unsere Ausgangszahl in der ersten Zurordnung können diese nicht gleich sein. Analog geht man für jede weitere Zahl und findet somit keine Zahl, die unserer neuen gleicht. Somit ist diese Liste unvollständig. \\
+Addieren wir jetzt unsere neue Zahl zu unserer Liste können wir diesen Prozess wiederholen. \\
+Somit ist gezeigt, dass keine Bijektion gefunden werden kann und $ \mathbb{R} $ ist überabzählbar. 
+\begin{flushright}
+q.e.d.
+\end{flushright}
+
+\subsection*{Größtes, kleinstes Element}
+\addcontentsline{toc}{subsection}{Größtes, kleinstes Element}
+
+\begin{center}
+\item[Größtes Element bzw. Maximum]
+\end{center}
+\item Größtes Element bzw. Maximum sind das Gleiche.
+\item Wir gehen immer mindestens von einer halbgeordneteten Menge aus ( manchmal auch total ).
+\item $ a\in M$ heißt größtes Element, genau dann wenn $$ \forall x \in M , x \leq e $$
+\item Deutlicher finde ich die äquivalente Definition, die das größergleich Zeichen verwendet.
+$$ \forall x \in M, e \geq x $$
+\item Das bedeutet, alle Elemente müssen mit e überhaupt vergleichbar sein UND alle Elemente müssen kleiner sein ( der Relation nach, vielleicht wirklich kleiner im numerischen Sinne oder nur eine Teilmenge. Es kommt auf die Halbordnung, bzw. Relation an ).
+
+
+\newpage
+
+\begin{center}
+\item[Kleinstes Element bzw. Minimum]
+\end{center}
+\item Kleinstes Element bzw. Minimum sind das Gleiche.
+\item Dann gilt analog $$ \forall x \in M, a \leq x $$ \\
+ a ist dann ein Minimum.
+\item \textbf{Wichtige Bemerkung} Besitzt eine Menge ein kleinstes bzw. größtes Element, so ist dies eindeutig bestimmt. Dies folgt aus der Antisymmetrie und kann leicht bewiesen werden.
+\item \textbf{Wichtige Bemerkung} Ein größtes bzw. kleinstes Element ist immer automatisch auch ein minimales bzw. maximales Element.
+
+\newpage
+
+\begin{center}
+\item[Maximales Element]
+\end{center}
+\item Ein maximales Element ist demnach die abgeschwächte Form eines Maximums. Es besagt, dass jedes Element, dass größer ist als das maximale Element, das maximale Element sein muss. Jedoch kann es auch andere Elemente geben, die einfach nicht mit dem Element vergleichbar sind. \\
+Beispielsweise ist ein Element einer Menge, welches nicht vergleichbar mit irgendeinem anderen Element der Menge ist, automatisch ein minimales und maximales Element. \\
+ Def: $$ \forall x \in M , a \leq x \Rightarrow a = x $$
+ oder wieder schöner umgedreht $$ \forall x \geq a \Rightarrow a = x $$
+
+\begin{center}
+\item[Minimales Element]
+\end{center}
+\item Analog gilt: Def: $$ \forall x \in M, x \leq a \Rightarrow x = a $$
+
+\newpage
+
+\subsection*{Schranken}
+\addcontentsline{toc}{subsection}{Schranken}
+
+\begin{center}
+\item[Schranken]
+\end{center}
+\item Eine obere Schranke ist ein Element in $ x \in \mathbb{R}, M \subset \mathbb{R} : \forall m : m \leq x $. Diese ist also ziemlich vage. Für alle reelen Zahlen kleiner als 1 sind zum Beispiel $ 4,5,6,12312325,6745745 $ alles obere Schranken. Analog gilt das gleiche für die untere Schranke.
+\item Untere Schranke $ x \in \mathbb{R}, M \subset \mathbb{R} : \forall x \leq m $
+\item Man beachte, dass Schranken nicht in der Menge liegen müssen ( aber können ! kleiner bzw. größergleich! gilt )
+\item \textbf{Eine Schranke ist immer eine Menge!}
+
+\subsection*{Supremum etc.}
+\addcontentsline{toc}{subsection}{Supremum}
+
+\begin{center}
+\item[Supremum]
+\end{center}
+\item Das Supremum verallgemeinert den Begriff des Maximums. Es sollte angesehen werden als die kleinste Obere Schranke der Menge.
+\item Demnach gilt als Definition eine Erweiterung der Schrankendefinition:\\
+
+Def des Supremum:
+Für jedes $ y \in M $ gilt $ y \leq s $
+und jede Zahl $x$ kleiner als $s$ ist keine obere Schranke. \\
+$ M: \forall x < s $ gilt $ \exists y \in M : y > x $ \\
+
+\item Die zweite Eigenschaft gibt es auch mit der Epsilon Definiton: \\
+Für alle $ \varepsilon > 0 $ gibt es ein $ y \in M : y > s - \varepsilon $
+
+\newpage
+ 
+
+\begin{center}
+\item[Infimum]
+\end{center}
+\item Analog gilt für das Infimum
+\item Def des Infimum: Def des Infimum:
+Für jedes $ y \in M $ gilt $ y \geq i $
+und jede Zahl $x$ größer als $i$ ist keine untere Schranke. \\
+$ M: \forall x > i $ gilt $ \exists y \in M : y < x $ \\
+\item Epsilon Definiton \\
+Für alle $ \varepsilon > 0 $ gibt es ein $ y \in M : i+ \varepsilon < y $ \\
+
+\item Es ist ersichtlich, dass jedes Maximum auch ein Supremum ist, analog gilt das gleiche für das Infimum.
+\item \textbf{Wichtig:} Das Infimum bzw. Maximum ist immer eindeutig, falls es existiert. Dieser Beweis funktioniert analog zum Beweis der Eindeutigkeit des Maximums bzw. Minimums.
+
+\begin{center}
+\item[Notation]
+\end{center}
+\item Max B = Maximum von B \\
+Min B = Minimum von B \\
+Sup B = Supremum von B \\
+Inf B = Infimum von B \\
+
+\newpage
+
+\begin{center}
+\item[Vollständigkeitsaxiom]
+\end{center}
+\item Das Vollständigkeitsaxiom hilft uns die reelen Zahlen von den rationalen herzuleiten.
+\item $x^2 = 2 $ hat keine Lösung in $\mathbb{Q}$. Allerdings können wir uns $\sqrt{2}$ beliebig gut annähern. Formal ausgedrückt: 
+$$ \exists y \in \mathbb{Q} : 2 - \epsilon \leq x^2 \leq 2+ \epsilon $$
+Daraus schließen wir, dass $ \mathbb{Q} $ unvollständing, aber dicht ist. ( Das sind intuitive Begriffe )
+\item Nun kann man die reelen Zahlen entweder axiomatisch definieren oder konstruktiv. Zuerst hier nun axiomatisch:
+\item Axiom: Jede nach oben ( unten ) beschränkte Teilmenge hat ein Supremum ( Infimum ). \\
+Axiomatischer Standpunkt : Es gibt eine Menge $\mathbb{R}$ (genannt Menge der reelen Zahlen ) mit Addition, Multiplikation, Ordnung, die alle vorherigen Axiome erfüllt bezüglich der Assoziativität, Kommutivität und Distributivität ( alle Gesetze, die wir auch als Rechenregeln kennen ).\\
+\item Bemerkung: \\
+Bis auf Isomorphie gibt es höchstens ein solches $\mathbb{R}$ , d.h. wenn $\tilde{\mathbb{R}}$ ( spezifisches $\mathbb{R}$ ein weiteres Syste, der reelen Zahlen ist, dann existiert eine bijektive Abbildung $ f: \mathbb{R} \rightarrow \tilde{\mathbb{R}}$ die bezüglich der Addition,Multiplikation und Ordnung ein Homomorphismus sind ( sich den Regeln bezüglich gleich verhalten ).
+\item Bemerkung 2: \\
+$\mathbb{N}$ und damit auch ($\mathbb{Q},\mathbb{Z}$) lassen sich durch injektive Homomorphismen $ g:\mathbb{N} \rightarrow \mathbb{R} $ in R einbetten : \\
+$$ g(0_{\in \mathbb{N}}) = 0_{\mathbb{R}} , g(1_{\in \mathbb{N}}) = 1_{\mathbb{R}} ... $$
+
+\begin{center}
+\item[$\mathbb{R}$ Konstruktiv herleiten]
+\end{center}
+\item \textbf{Methode der Abschnitte}
+\item Jede reele  Zahl wird charakterisiert durch ein rechts offenes, beschränktes Intervall, dessen rechte Grenze die Zahl darstellt. \\
+Bemerkung: Die Analysis basiert auf der Konvergenz von Folgen. Die reelen Zahlen stellen sicher, dass diese Elemente am Ende wohldefiniert sind.
+\item \textbf{Methode der Cauchy Folge}
+\item Jede reele Zahl wird charakterisiert als " Grenzwerte " einer Klassen äquivalenter Cauchy Folge aus Q ( wird hier noch nicht definiert ) 
+
+\begin{center}
+\item[Positiv, negativ]
+\end{center}
+\item $ x \in \mathbb{R}$ heißt  
+
+$  \begin{cases} $  positiv $ \leftrightarrow 0 < x  \\ $ 
+nichtneg. $ \leftrightarrow 0 \leq x  \\ $
+negativ $ \leftrightarrow x < 0  \\ $
+nichtpositiv $ \leftrightarrow x \leq x  $
+$ \end{cases} $ \\
+
+\newpage
+
+
+\begin{center}
+\item[Vorzeichenfunktion]
+\end{center}
+\item auch Signumfunktion ( Lateinisch für Vorzeichen ) genannt. 
+\item $$ sgn(x):= \begin{cases}
+\frac{x}{|x|} , x \neq 0  \\
+x = 0, sgn(x)=0 
+\end{cases} $$
+\item Das bedeutet, jeder positiven Zahl wird die $1$ zugeordnet, jeder negativen die $-1$.
+
+\subsection*{Dreiecksungleichung}
+\addcontentsline{toc}{subsection}{Dreiecksungleichung}
+
+\begin{center}
+\item[Dreiecksungleichung]
+\end{center}
+\item für die reelen Zahlen gilt: \\
+\begin{center}
+(1) $ |x \times y | = |x| * |y| $ \\
+(2) $ |x+y| \leq |x| + |y| $ \\
+(3) $ |x+y| = |x| + |y| \leftrightarrow x,y \geq 0 $  \\
+\end{center}
+\item Eine weitere wichtige Ungleichung ist \\
+$ ||a|-|b|| \leq |a-b| $ was auch intuitiv ist, da dies fast die gleichen Gleichungen sind. Bloß in der größeren Seite, gibt es die Möglichkeit, dass sowas passiert wie \\
+$ 7 - (-3) = 10 $ was den Ausdruck wieder größer macht. Auf der anderen Seite kann der Ausdruck nie größer sein als einer der beiden Komponenten, aber auf der rechten Seite ist der maximale Wert $ |a|+|b|$ \\
+
+\newpage
+
+\begin{center}
+\item[Kugel um eine reele Zahl]
+\end{center}
+\item Man stelle sich ein offenes Intervall vor, dass eine beliebige Zahl $ x \in \mathbb{R} $ gerade so umschließt.
+\item Wir definieren I für Intervall $$ I_\epsilon(x):= ( x - \epsilon, x + \epsilon) = \{y \in \mathbb{R} : |x-y| \leq \epsilon \} $$
+\item $ \{y \in \mathbb{R} : |x-y| \leq \epsilon \}$ ist so zu verstehen, dass wir ein y finden können, sodass $ |x-y| $ beliebig klein ist und somit ein minimal kleines Intervall bildet. Dies wird mathematisch durch kleiner als epsilon ausgedrückt.
+\item Nach unserem Verständnis der reelen Zahlen ist nun klar, dass wir auch eine kleinere "Kugel" finden können. Deshalb: \\
+\textbf{Lemma: } \\
+Es gilt $ y \in I_\epsilon(x) \Rightarrow \exists \delta > 0 : I_\delta (y) \subset I_\delta (x)$
+
+\subsection*{Monotonie}
+\addcontentsline{toc}{subsection}{Monotonie}
+
+\item Eine Funktion ist streng monoton steigend ( die ganze oder halt nur in einem Intervall ), wenn mit steigendem x Wert auch der Funktionswert steigt. Analog, wenn er steigt, aber der Funktionswert sinkt, ist sie monoton fallend. 
+\item Monotonie $ \begin{cases} $ wachsend $ \leftrightarrow x \leq y \Rightarrow f(x) \leq f(y)  \\ $
+ fallend $ \leftrightarrow x \leq y \Rightarrow f(x) \geq f(y)   $
+$  \end{cases} $ \\
+Man lasse sich nicht verwirren von x und y hier, das sind nur Variablen und $ y \neq f(x) $. Es geht nur darum, dass wenn x auch wirklich kleiner als y ist, dann muss auch der Funktionswert kleiner sein.
+
+ \item \textbf{Strenge }Monotonie $ \begin{cases} $ streng monoton wachsend $ \leftrightarrow x < y \Rightarrow f(x) < f(y)  \\ $
+ streng monoton fallend $ \leftrightarrow x < y \Rightarrow f(x) > f(y)   $
+$  \end{cases} $ \\
+
+\item \textbf{ Lemma:} \\
+Sei $ M,N \subset \mathbb{R} , f: M \rightarrow N $ streng monoton und bijektiv. Dann ist $f^{-1}$ streng monoton.
+
+\begin{center}
+\item[Potenzen]
+\end{center}
+\item Def: Für $a \in \mathbb{R} , n \in \mathbb{N} $ definieren wir \\
+$$ a^n:= \prod\limits_{i=1}^n a $$
+und für $ a \in \mathbb{R} \backslash \{ 0 \}, n \in \mathbb{N} $ \\
+$$ a^{-n} = \frac{1}{a^n} $$
+\item Satz: \\
+Es gilt für alle $a,b \in \mathbb{R}$ bzw. $ \mathbb{R} \backslash \{ 0 \} , n,m \in \mathbb{N}_{0} $ ( bzw. ) $\mathbb{Z}$\\
+$a^n \times a^m = a^{n+m} $\\
+$(a^n)^m = a^{n\times m} $ \\
+$ (ab)^m = a^m * b^m $ 
+
+
+
+\subsection*{Binomialkoeffizient}
+\addcontentsline{toc}{subsection}{Binomialkoeffizient}
+
+\item Der Binomialkoeffizient sagt uns, wieviele Möglichkeiten es gibt aus einer Menge N , k Elemente zu wählen, \textbf{OHNE ZURÜCKLEGEN UND DIE REIEHENFOLGE IST EGAL}. Man merke sich, dass es wie Lotto ist. Keine Zahl zweimal und die Reihenfolge ist egal.
+\item Zuerst definieren wir die Fakultät \\
+Def: $1!:=1, \forall n\in \mathbb{N} : (n+1)! := (n+1)n! $ \\
+Das bedeutet im Klartext, dass der Nachfolger $(n+1)$ von der Fakultät $n!$ einfach $n!$ mal die nächste natürliche Zahl ist. Beispiel:
+$$ (2+1)! := 3 * 2! = 3! = 6 $$
+\item Die Elemente einer Menge N mit $n$ Elementen kann also in $n!$ Wegen angeordnet werden.
+\item Definition: Die Anzahl der k-elementigen Teilmengen einer nicht leeren Menge A mit Mächtigkeit n ist 
+$$ 1 \leq k \leq n $$
+$$ \binom{n}{k}:= \frac{n\times (n-1)* (n-2)*...(n-(k-1)}{k!} $$ 
+für Spezialfälle $n=0, k=0 $ gelten spezielle Definitionen und wir können nicht mehr Dinge k wählen, als es n elemente gibt. Beispielsweise, kann ich keine Teilemenge mit 10 Elementen finden, wenn die Obermenge nur 5 hat.  \\
+Weiterhin überlegen wir uns bei $\frac{n\times (n-1)* (n-2)*...(n-(k-1)}{k!}$ , dass wir oben die Möglichkeiten haben, die sich immer um 1 reduzieren, für jeden Zug von k ( genau k mal, $ n-(k-1) $ , da wir am Anfang $(n-0)$ haben und diesen mitzählen müssen, ähnlich wie die Anzahl der Ziffern von 0-9 = 10 ist. ). Dann teilen wir noch durch die Anzahl der Möglichkeiten, die einzelnen Elemente in den Teilmengen verschieden anzurodnen, da die Reihenfolge ja egal ist. Wir wissen, dass es $k!$ ist. Darum dividieren wir mit diesem Faktor. \\
+
+\begin{center}
+\item[Eigenschaften des Binomialkoeffizients]
+\end{center}
+\item Wenn irgendwas unklar mit Fakultäten, immer mit Zahlenbeispielen verdeutlichen.
+\begin{equation} 
+ \begin{aligned} 
+  \binom{n}{k} &:= \frac{n\times (n-1)* (n-2)*...(n-(k-1)}{k!} \\ 
+   &= \frac{n\times (n-1)* (n-2)*...(n-(k-1)(n-k)!}{k!(n-k)!} \\
+   &= \frac{n!}{k!(n-k)!}  \\
+   &= \binom{n}{n-k}
+ \end{aligned} 
+\end{equation} 
+\item Man muss sich das einfach genau angucken und aufhören zu versuchen, da irgendwas direkt ohne Umformen zu sehen.
+\item wir wollen zeigen $$ \binom{n}{k} = \binom{n}{n-k} $$
+\begin{equation} 
+ \begin{aligned} 
+  \binom{n}{n-k} &:= \frac{n!}{(n-k)! \times (n-(n-k))!} \\ 
+  &= \frac{n!}{(n-k)! \times k!} \\   
+   &= \binom{n}{k}
+ \end{aligned} 
+\end{equation} 
+
+\item Lemma. \\
+
+\item $$ \binom{n+1}{k+1} = \binom{n}{k} + \binom{n}{k+1} $$
+\item Lässt sich durch algebraische Manipulation zeigen, siehe Skript.
+
+\begin{center}
+\item[Lemma 1.51]
+\end{center}
+\item Sei $ M \in \mathbb{R} $ nach oben bzw. unten beschränkt, dann gilt :  \\
+(1)  $ s = Sup M \Leftrightarrow \forall \epsilon > 0 \, \exists x \in M : s - \epsilon < x \leq s $ \\
+Was sagt, dass es die kleinste obere Schranke ist.
+\item Es sei also angemerkt, dass das Supremum gleich dem größten Element sein kann. Auch eine obere Schranke darf gleich einem Element in der Menge sein \textbf{nur nicht kleiner!}. Das gleiche gilt für Schranken! 
+\item Minimum und Maximum erweitern nun die Begriffe von Sup und Inf so, dass das gleiche gilt, jedoch muss das Sup und Inf in der Menge selbst liegen.
+
+
+\begin{center}
+\item[Lemma 1.52]
+\end{center}
+\item $ \mathbb{N} $ ist unbeschränkt in $\mathbb{R}$ 
+
+\newpage
+
+\subsection*{Bernoullische Ungleichung}
+\addcontentsline{toc}{subsection}{Bernoullische Ungleichung}
+
+\item Für alle $ x \geq -1 $ , $ n\in \mathbb{N} : (1+x)^n \geq  1+nx $ 
+\item Was intuitiv natürlich Sinn macht, da die Potenz viel größer ist, als die simple Multiplikation und kann leicht per Induktion bewiesen werden.
+\item Es wird benutzt, um Potenzen nach unten abzuschätzen, also zu zeigen, dass irgendwas kleiner bzw. kleinergleich ist.
+\item Für die andere Seite ist sie nicht sinnvoll, da im Beweis wichtige Informationen bezüglich der anderen Richtung verloren gehen. Weiterhin steht in der Gleichung selbst \begin{center}
+$\geq $
+\end{center} 
+\item Beispielsweise lässt sich zeigen, dass $ y^{n} \in [1,\infty) $ ist.
+
+\begin{center}
+\item[Max und Min Funktion]
+\end{center}
+\item $x = max\{y_1,y_2\} $ bedeutet lediglich, dass $ x=y_1 \, $ wenn $ y_1 > y_2 $ , sonst $ x = y_2 $
+
+\newpage
+
+\subsection*{Komplexe Zahlen}
+\addcontentsline{toc}{subsection}{Komplexe Zahlen}
+
+\item Dies ist Satz 1.58\\
+
+\item Man betrachte also die Menge der Paare $\{x,y\}= \mathbb{R} \times \mathbb{R} $ auf denen die Addition und Multiplikation wie folgt definiert sind: \\
+(KA) = Komplexe Addition = $\{x_1,y_1\} + \{x_2,y_2\} = \{x_1+x_2,y_1+y_2\} $ \\
+
+(KM) = Komplexe Multiplikation = $\{x_1,y_2\} * \{x_2,y_2\} = \{x_1 * x_2 - y_1*y_2 , x_1 *y_2 + x_2 * y_1\} $ \\ 
+Dies folgt natürlich, wenn man 2 komplexe Zahlen $z_1 = x_1 + y_1 * i $ und $z_2 = x_2 + y_2 * i  $ multipliziert und $i^2= -1$ beachtet. \\
+
+\item Man nenne diese Menge von Paaren den Körper $\mathbb{C}$ der komplexen Zahlen mit dem neutralen Elementen: \\
+$\{1,0\}$ bezüglich Multiplikation\\
+$\{0,0\}$ bezüglich Addition \\
+
+\item Die Gleichung $ z^2 + \{1,0\} = \{0,0\} $ hat in $\mathbb{C}$ zwei Lösungen, welche mit \\
+$i=\{0,\pm 1\} $ bezeichnet werden. \\
+Der Körper $\mathbb{R}$ ist mit der Abb. $x \in \mathbb{R}, x \mapsto \{x,0\} \in \mathbb{C} $ ist isomorph 
+zu einem Unterkörper ( bijektiver Gruppenhomomorphismus ) von $\mathbb{C}$. \\
+
+\begin{center}
+\item[Neutrale Elemente]
+\end{center}
+\item 
+$\{1,0\}$ bezüglich Multiplikation\\
+$\{0,0\}$ bezüglich Addition \\
+
+\begin{center}
+\item[Inverse Elemente]
+\end{center}
+\item Additives Inverses ist $ z + (-z) = 0$ \\
+\item Für das multiplikative Inverse wollen wir $z^-1 $ so definieren, dass $z \times z^-1 = \{1,0\} $ \\
+
+$$ z^{-1} = \frac{1}{z} = \{\frac{z_1}{z^2_1 + z^2_2} , \;  - \frac{z_2}{z^2_1 + z^2_2}\} $$
+
+$$ z * z^-1 = \{z_1 * \frac{z_1}{z^2_1+z^2_2} + \frac{z^2_2}{z^2_1+z^2_2}, \; \; \frac{z_1*z_2}{z^2_1+z^2_2} - \frac{z_1*z_2}{z^2_1+z^2_2}\} 
+$$ 
+$$ = \{1,0\} $$
+
+\begin{center}
+\item[Komplexe Zahl $i$]
+\end{center}
+\item $ i = \{0,1\} $ , $ i^2 = \{0,-1\} $hat die Eigenschaft \\
+$$ 1+i^2 = \{1,0\} + \{0^2-1^2,0 \} = \{0,0\} = 0 $$ Es ist also die Wurzel von $-1$. \\
+Ebenso $ 1+(-i)^2 = 0 $\\
+\item Die Zuordnung  $x \in \mathbb{R}, x \mapsto \{x,0\} \in \mathbb{C} $ bildet $\mathbb{R}$ bijektiv auf eine Untermenge von $\mathbb{C}$ ab, welche bzgl. der Addition und Multiplikation ein Körper ist.
+
+\newpage
+
+\begin{center}
+\item[Notation von komplexen Zahlen]
+\end{center}
+\item $z=\{x,y\} =: x+iy  \; \; \; x,y \in \mathbb{R} $ \\
+$x$ ist der Realteil $Re(z):= x$ \\
+$y$ ist der imaginäre bzw. komplexe Teil $Im(z):= y$ \\
+$z_1+z_2 = (x_1+iy_1) = (x_1+x_2) + i(y_1+y_2) $ \\
+Multiplikation:
+$$ z_1\times z_2 = (x_1+y_1)*(x_2+y_2i) = x_1 x_2+x_1 y_2i+x_2 y_1i + y_1y_2 i^2 = x_1x_2 - y_1y_2 + i(x_1y_2+x_2y_1) $$
+Zwei komplexe Zahlen sind gleich, wenn $x_1=x_2 $ und $y_1 = y_2 $ 
+
+\item Bemerkung:\\
+Jede quadratische Gleichung hat somit genau 2 Lösungen in $\mathbb{C}$. Man kann sich dies schön graphisch veranschaulichen, aber auch simpel dadurch, dass wir schreiben können $$ \sqrt{-x} = \sqrt{x} * \sqrt{-1} = \sqrt{x} * i $$
+
+\begin{center}
+\item[Fundamentalsatz der Algebra]
+\end{center}
+\item Jedes nicht konstante Polynom besitzt in $\mathbb{C}$ mindestens eine Lösung. Der Beweis folgt in Funktionentheorie.  \\
+
+\begin{center}
+\item[Konjugat von komplexen Zahlen]
+\end{center}
+\item Das Konjugat einer komplexen Zahl $z = x + yi$ ist definiert als $\overline{z} = x-yi$ somit ist es die gleiche Zahl mit gegenteiligem imaginärem Part. Somit ist das Konjugat gleich der originalen Zahl, wenn der imaginäre Part 0 ist.\\
+
+\newpage
+
+\begin{center}
+\item[Polarkoordinatenform der komplexen Zahlen]
+\end{center}
+\item Man definieren den \textbf{Absolutbetrag} einer komplexen Zahla als 
+$$ |z| = \sqrt{x^2+y^2} $$
+was sich natürlich von dem Satz des Pythagoras ableitet. \\
+\item Anstatt nun seperat die x und y Koordinaten anzugeben, wollen wir nun nur die Diagonale angeben, die den Punkt $z$ mit dem Ursprung verbindet. Diesen nennt man auch $r$ für Radius. \\
+Dann müssen wir lediglich, den Winkel angeben, also in welche Richtung diese Diagonale zeigen soll. \\
+\item Man überlege sich nun, dass der cos unsere x Achsenrichtung angibt ( man erinnere sich an den Einheitskreis, wo es dann $ cos = \frac{opp}{hyp} $ ist und die Hypothenuse eins. ) und der sinus unsere y Achsenrichtung. \\
+
+Haben wir also nun eine komplexe Zahl gegeben, müssen wir lediglich den Winkel ausrechnen ( im Internet grafische Darstellung dazu angucken, wenn unklar ist, welcher Winkel gemeint ist ). Wir ziehen den Tangens an, da er den Sinus und den Cosinus in Verbindung setzt und wir diesen nun "lösen" können.  \\
+
+Sei $z = 2 + 3i $, dann ist $ tan(\alpha)= \frac{opp}{adj} = \frac{2}{3} $ nun müssen wir den Arctan benutzen, um unseren Winkel zu bekommen in Radians ! Außerdem muss man $ + \pi $ rechnen, da wir jetzt sozusagen den $ 180 \deg $ gegenüberliegenden Winkel berechnet haben. ( Ein Kreis in Radians = $ 2 \pi  $ ). \\
+
+Somit ist $z = 2 + 3i $ in Polarkoordinatenform dann $ z = |z| ( cos(3,3) + sin (3,3) * i ) $ , sinus war die imaginäre Achse,deshalb das i. \\
+
+\newpage
+
+\section*{Zahlenfolgen und Reihen}
+\addcontentsline{toc}{section}{Zahlenfolgen und Reihen}
+
+\begin{center}
+\item[\textbf{Zahlenfolgen und Reihen}]
+\end{center}
+\item Topologische Strukturen: \\
+Abstände kennen wir in $ \mathbb{R}^1$ als Beträge $|x-y|$ verallgemeinert nennt man diese Norm und Metrik in Topologie und Geometrie höhere Dimensionen. \\
+Umgebungen kennen wir als Epsilon Intervalle und verallgemeinert heißen diese dann Kugeln und Umgebung. \\
+
+Wir wollen in folgendem Folgen betrachten, die von den natürlichen Zahlen auf die Reelen abgebildet werden ( oder komplexen ). Dies bedeutet lediglich, dass wir eine Anreihung von Zahlen oder Ausdrücken mit den natürlichen Zahlen durchnummerieren und uns deren Verhalten näher angucken.\\
+
+\item Die Notation einer Folge ist $$ (a_n)_{n \in \mathbb{N}} $$ 
+wo dies einfach bedeutet, dass wir $n$ Terme haben, wo $n$ die Natürlichen Zahlen sind, oder wenigstens ein Teil davon. \\
+
+\newpage
+
+\subsection*{Konvergenz}
+\addcontentsline{toc}{subsection}{Konvergenz}
+
+\begin{center}
+\item[\textbf{Konvergenz von Folgen}]
+\end{center}
+\item Wir sagen nun, dass eine Folge $ (a_n)_{n \in \mathbb{N}} $ konvergiert, wenn sie sich einem Grenzwert ( Limes ) annähert.\\
+
+\item  Ist  ${\displaystyle (a_{n})_{n\in \mathbb {N} }}  $ eine Folge reeller Zahlen, so ist die Zahl ${\displaystyle a\in \mathbb {R} }  $  der Grenzwert dieser Folge und die Folge konvergiert gegen $a$, falls für jedes ${\displaystyle \varepsilon >0} $  in dem Intervall ${\displaystyle (a-\varepsilon ,a+\varepsilon )} $ um ${\displaystyle a} $ ab einem gewissen Index alle Glieder innerhalb und nur endlich viele Glieder der Folge ${\displaystyle (a_{n})_{n\in \mathbb {N} }} $ außerhalb liegen. \\
+
+\item Mathematisch korrekt drücken wir dies wie folgt aus: 
+
+$$ \textit{Die Zahl} \; a \in \mathbb{R} \textit{ heißt Grenzwert der Folge } \;  (a_n)_{n \in \mathbb{N}}, $$
+$$  \textit{ falls es zu jedem } \epsilon > 0  \textit{ eine natürliche Zahl N gibt, $$
+$$ so dass } |a_n -a | < \epsilon \textit{ falls } n \geq N $$
+
+\item Dies ist zu so zu verstehen, dass wir ein beliebiges Epsilon größer als 0 wählen können, und egal wie klein dieses ist, ab einem bestimmten Element der Reihe ist der Abstand zwischen den Folgegliedern so klein, dass $ |a_n -a | < \epsilon $ gilt ( also der Abstand zum Folgelied kleiner als das Epsilon ist ). \\
+
+Man sagt dann, dass fast alle Folgenglieder, also alle bis auf endlich viele Folgenglieder, die Bedingung erfüllen. \\
+
+\begin{center}
+\item[Eindeutigkeit des Grenzwertes]
+\end{center}
+\item Mein eigener Beweis: \\
+Besitzt eine Folge $ (a_n)_{n \in \mathbb{N}} $ einen Grenzwert, so ist dieser eindeutig.  \\
+
+Beweis durch Widerspruch: \\
+
+$ (a_n)_{n \in \mathbb{N}} $ besitzt einen Grenwert und ist nicht eindeutig.
+Man nehme an, die Folge habe zwei Grenzwerte $a,b$, dann gilt $|a-b|\neq 0 $, da diese verschieden sind.\\
+
+Nach der Definition des Grenzwertes, siehe oben, muss gelten, wenn $\varepsilon = \frac{|a-b|}{2} $: \\
+
+$|a_n - a| < \frac{|a-b|}{2}$ wenn $ n \geq  N $ \\
+$|a_n - b| < \frac{|a-b|}{2}$ wenn $ n \geq  N $ \\
+
+Somit folgt: \\
+$$|a_n - a| + |a_n - b| < |a-b|  = |a- a_n| + |a_n - b| < |a-b| $$
+
+Wir nutzen die Dreiecksungleichung und schätzen nach unten ab: 
+
+$$|a-a_n+a_n - b| < |a-b| $$
+$$ |a-b| < |a-b| $$ Dies ist ein Widerspruch und somit ist bewiesen, dass wenn eine Folge einen Grenzwert besitzt, dass dieser eindeutig ist. \\
+
+
+
+
+
+\newpage
+
+\item[Folgerung]
+\item Eine monoton wachsende bzw. fallende Folge, welche beschränkt ist, konvergiert gegen ihr Supremum bzw. Infimum. 
+\item Sei $(a_n)$ eine monoton wachsende Folge, dann muss jedes Folgeglied größer dem vorherigen sein,d.h.:
+$$ a_n+1 \geq a_n $$ 
+Sei s nun das Supremum der Folge, welches existiert nach dem Vollständigkeitsaxiom. \\
+Wir betrachten die $\epsilon$ Umgebung $U_\epsilon (s)$ \\
+Da $s-\epsilon$ keine obere Schranke sein kann, da $s$ die kleinste obere Schranke ist, gibt es ein Folgeglied $a_k : a_k > s- \epsilon $ Da die Folge aber monoton wachsend ist, muss jedes nachfolgende Glied auch in dieser Umgebung liegen. \\
+Somit liegen also nur endlich viele Folgeglieder außerhalb der Umgebung $U_\epsilon (s)$, was impliziert, dass $s$ das Supremum der Folge ist.\\
+Der Beweis für eine monoton fallende Folge folgt analog. \\
+\begin{flushright}
+q.e.d.
+\end{flushright}
+
+\newpage
+
+\subsection*{Cauchy Folgen}
+\addcontentsline{toc}{subsection}{Cauchy Folgen}
+
+
+\begin{center}
+\item[\textbf{Cauchy Folgen}]
+\end{center}
+\item Man erinnere sich and die Epsilon Definition $$ \forall \varepsilon>0 \quad \exists N\in\mathbb{N} \quad \forall m,n \ge N \colon \quad \left|a_m-a_n \right|<\varepsilon $$
+
+\item Nun fixiere man ein beliebiges Epsilon und wir haben ein $N_\varepsilon$ , sodass \\
+$ |a_n -a | < \epsilon $ für alle $ n \geq N_\varepsilon $ gilt. \\
+Sei nun $n,m \geq N_\varepsilon $, dann folgt: \\
+$$ |a-a_n| < \varepsilon $$
+$$ |a-a_m| < \varepsilon $$
+
+\item Nun können wir den Abstand $|a_n-a_m|$ wie folgt abschätzen:
+
+$$|a_n-a_m| = |a_n-a + a-a_m|$$
+
+Der nächste Schritt folgt aus der Dreiecksungleichung $ |x+y| \leq |x| + |y| $ : 
+
+$$ |a_n-a + a-a_m| \leq \underbrace{|a_n-a|}_{<\varepsilon} + \underbrace{|a-a_m|}_{<\varepsilon} $$
+
+$$ |a_n-a + a-a_m| < 2\varepsilon $$
+
+$$ |a_n-a_m| < 2\varepsilon $$
+
+\item Somit muss für konvergente Folgen gelten 
+$$ \forall \varepsilon > 0 \; \exists N \in \mathbb{N} : \; \forall n,m \geq N : |a_n-a_m| < 2\varepsilon $$
+
+\newpage
+\begin{center}
+\item[\textbf{Cauchy Folgen}]
+\end{center}
+\item Diese Überlegung macht auch Sinn, wenn man sich die ${\displaystyle (a-\varepsilon ,a+\varepsilon )} $ Epsilon Umgebung anschaut. Denn jedes Folgeglied ab einem bestimmten Punkt, darf dieses Intervall nicht mehr verlassen. \\
+\item Man nennt dieses Kriterum nun Cauchy Kriterum, wo oft $ \tilde{\varepsilon} = 2\varepsilon$ gesetzt wird:
+$$ \forall \varepsilon > 0 \; \exists N \in \mathbb{N} : \; \forall n,m \geq N : |a_n-a_m| < \varepsilon $$
+
+Es fällt auf, dass dieses Konvergenzkriterium keinen Grenzwert benötigt.
+
+\begin{center}
+\item[\textbf{Teilfolge}]
+\end{center}
+\item Eine Teilfolge ist eine Auswahl bestimmter Folgeglieder einer Folge. Also sei $ (a_n)_{n \in \mathbb{N}} $ eine Folge, dann ist 
+$$  (a_{n_\varepsilon})_{k \in \mathbb{N}} $$ eine Auswahl der Folgeglieder aus der originalen Folge und somit eine Teilfolge.
+\item Jede Folge ist auch seine eigene Teilfolge, da ich $n_k =k$ setzen kann und somit die gleiche Folge habe.
+\item Wichtig ist natürlich, dass sich die Reihenfolge der Elemente der originalen Folge nicht verändern darf. Es werden lediglich Elemente gestrichen und dann wird durch das Index K dotiert, welche Indizes für die Teilfolge verwendet werden.
+
+
+\begin{center}
+\item[\textbf{Satz: Jede konvergente Folge ist eine Cauchy Folge}]
+\end{center}
+\item Für den Beweis fixiere man $a_m,a_n$ und zeige, dass das die Abstände $|a_n-a_m|,|a_n-a_n|$ kleiner sind als ein beliebiges Epsilon. Fast genauso 
+wie die Herleitung des Cauchy Kriteriums.
+
+\newpage
+\begin{center}
+\item[Satz 2.6 Jede Cauchy Folge ist beschränkt]
+\end{center}
+\item Aus der Definition der Cauchy Folge 
+$$ \forall \varepsilon > 0 \; \exists N \in \mathbb{N} : \; \forall n,m \geq N : |a_n-a_m| < \varepsilon $$
+Aus der Definition von Beschränktheit: \\
+$\exists M >0 : |a_n |\leq M \; \forall n \in \mathbb{N} $\\
+Wir setzen nun $\varepsilon=1$ \\
+$$ |a_n-a_m| < 1 $$ \\
+Nun fixieren wir ein $m>N, m = N+1 $ , es ist nun zu zeigen:$$ |a_n | < M \; \forall n \in \mathbb{N} $$ \\
+
+$$ |a_n | = |a_n-a_m+a_m| \leq |a_n -a_m| + |a_m | < 1 + |a_m | $$
+$$ \rightarrow |a_n| < 1 +  |a_N+1 | \; \; \forall n > N $$ \\
+
+Remember that $|a_N+1| = |a_m|$
+Nun für alle $n \leq N $ definieren wir eine $M$: 
+$$ M:= max\{|a_1|,...,|a_N|,|a_{N+1}| \} $$
+
+\newpage
+
+
+Daraus folgt dann auch, dass für alle $n$ gilt, $|a_n | < M $, denn wenn $$n>N \rightarrow |a_n| < 1 +  |a_m | < M $$, denn Epsilon ( also hier 1 ) hätte beliebig klein gewählt werden könnnen, solange es positiv ist und somit könnte man fast sagen $ n>N \rightarrow |a_n| <   |a_N+1| $ was dies deutlicher macht. Für $n \leq N $ ist ja in der Menge M noch ein Element mehr, was auf jeden Fall größer ist als $|a_n|$, sodass auf jeden Fall gilt \\
+$$n \leq N < M $$
+Damit ist bewiesen, dass jede Cauchy Folge beschränkt sein muss, da wir am Anfang eine beliebige gewählt haben. \\
+
+\item Dieser Dreiecksungleichung Trick ist extrem wichtig für viele Beweise:
+$$ |a-b| = |a-c+c-b| \leq |a-c| + |c-b| $$
+
+\begin{center}
+\item[Metrischer Raum]
+\end{center}
+\item Wir nennen eine Menge mit einem definierten Abstand einen metrischen Raum. Somit ist $\mathbb{R}$ ein metrischer Raum. 
+\item Wir nennen einen Raum vollständig, wenn jede Cauchy Folge konvergiert. Intuitiv bedeutet dies: In $Q$ kann eine Folge nicht gegen $\sqrt{2}$ konvergieren, da diese nicht existiert. Somit können dort nicht alle Folgen konvergieren und manche Zahlen "fehlen" und die Menge bzw. der Raum ist unvollständig. \\
+
+\newpage
+
+\subsection*{Häufungswerte}
+\addcontentsline{toc}{subsection}{Häufungswerte}
+
+
+\begin{center}
+\item[Häufungswert]
+\end{center}
+\item Häufungswerte bzw. Punkte sind verschieden, wenn man Folgen oder von Mengen spricht. Deshalb muss im Kontext klar sein, worum es sich hier handelt! \\
+\item Folgen: \\
+
+Def: Eine Zahl $a$ ist Häufungswert einer Folge $(a_n)_{n\in \mathbb{N}}$, wenn es eine Teilfolge $(a_{n_k} )_{k\in \mathbb{N}}$ gibt, die gegen diese Zahl a konvergiert. \\
+
+\item Beispiel: \\
+$$ a_n= (-1)^n \frac{n}{n+1} $$ 
+
+Alle geraden $n$ in dieser Folge nähern sich 1 an und alle ungeraden nähern sich -1 an. Somit hat $a_n$ zwei Häufungspunkte.
+
+\item Somit sind Häufungswerte eine Abschwächung eines Grenzwertes. Der Grenzwert ist eindeutig, jedoch kann es mehrere Häufungswerte geben. Auch kann man einen Häufungswert alternativ definieren, indem man sagt, dass sich unendlich viele Glieder in einer Epsilon Umgebung bewegen. Nur kann man dann nicht automatisch sagen, dass nicht auch unendlich viele Glieder in einer anderen Epsilon Umgebung liegen, siehe: \\ 
+
+
+
+$$ a_n= (-1)^n \frac{n}{n+1} $$ 
+
+Man erinnere sich, dass ein Grenzwert gegeben ist, wenn wir zeigen können, dass unendlich viele Glieder in einer Epsilon Umgebung liegen und nur endlich viele außerhalb dieser einzigen. \\
+
+\item Alternative Häufungspunktdefinition: \\
+
+Eine Folge $(a_n)_{n\in \mathbb{N}}$ besitzt den Häufungspunkt $h\in \mathbb{R}$, wenn sich in jeder Umgebung von h unendlich viele Folgeglieder von $(a_n)_{n \in \mathbb{N}} $ befinden. Für alle 
+$ \varepsilon > 0 $ muss es also unendlich viele Indizes $ n \in \mathbb{N} $ mit $|a_n - h | < \varepsilon $ geben.
+
+\item Beweis, dass eine Cauchy Folge mit einem Häufungspunkt a konvergiert: \\
+
+Let $(a_n)_{n\in \mathbb{N}}$ be a Cauchy Sequence in $\mathbb{K}$ and $a$ and accumulation point. It follows that the sequence converges to $a$. \\
+
+Proof: Let $\varepsilon$ be arbitrary but fixed. We choose
+$n_\varepsilon \in \mathbb{N} $ such that :
+$$ |a_n- a_m| < \frac{\varepsilon}{2} \; \forall n,m > n_\varepsilon
+$$ 
+ 
+ and we choose $m_\varepsilon > n_\varepsilon $ such that:
+ 
+ $$|a-a_{m_\varepsilon}| < \frac{\varepsilon}{2} $$
+ 
+ $$ \forall n > m_\varepsilon : |a-a_n| \leq |a-a_{m_\varepsilon}| 
+   + |a_{m_\varepsilon} - a_n| < \varepsilon \Rightarrow $$ daraus folgt, dass die Folge gegen den Häufungspunkt a konvergiert. \\
+   
+Bemerkung: \\ Die letzte Ungleichung folgt daraus, dass sie $-a_{m_\varepsilon} + a_{m_\varepsilon} $ addiert hat und dann die Dreiecksungleichung genutzt. 
+
+\begin{center}
+\item[Häufungspunkte von Mengen]
+\end{center}
+\item Spricht man von Mengen sind es Häufungspunkte und diese sind wie folgt definiert: \\
+
+Ein $a\in \mathbb{K} $ heißt Häufungspunkt einer Teilmenge M von $\mathbb{K}$, wenn $\forall \varepsilon > 0 $ existieren unendliche viele $ x \in M $, sodass $|a-x| < \varepsilon $ \\
+
+Diese Definition ähnelt stark der Definition des Häufungswertes einer Folge. Man sollte hier nicht nur an Mengen wie $\mathbb{R}$ etc. denken, sondern zum Beispiel an eine Menge von Folgegliedern der Folge $ a_n = 1/n $. Nun besitzt die Menge $ X = \{ a_n | \; n \in \mathbb{N} \} $ einen Häufungspunkt bei 0, da ja 0 in ihrer Epsilon Umgebung unendlich viele Elemente hat, da die Folge gegen 0 konvergiert.
+
+\begin{center}
+\item[Lemma 2.14]
+\end{center}
+\item Jede Folge $(a_n)_{n\in \mathbb{N}} \in \mathbb{R} $ besitzt eine monotone Teilfolge 
+\item Wir konstruieren nun eine Menge von Spitzen, sprich, ein Folgeglied, ab dem jede weiteren Folgeglieder kleiner sind. \textbf{Man muss die Definition von den Sachen hier wirklich genau lesen. Die Idee dahinter ist wirklich simpel, es ist hauptsächlich Notation.}\\
+
+$$ B= \{n \in \mathbb{N} | \; \forall k \geq n, a_n \geq a_k \} $$
+
+Fall 1:\\
+Entweder gibt es unendlich viele Spitzen ( z.B. eine Folge, die einfach monoton fällt, wo jeder Term größer ist als alle folgenden ), so definieren wir rekursiv eine monoton fallende Folge so, dass wir die erste Spitze nehmen ( das Minimum von B, denn bei der Menge B handelt es sich ja um Indexe, also suchen wir das minimale Index, was noch eine Spitze ist ). Das zweite Glied ist dann der nächste minimale Index, der auch eine Spitze ist. Wir drücken diese rekursive Definition wie folgt aus:
+
+\begin{equation} 
+ \begin{aligned} 
+  n_0&= min B
+  n_+1&= min\{n \in B, n > n_k \}
+ \end{aligned} 
+\end{equation}
+
+Fall 2: \\
+Es gibt endlich viele oder keine Spitzen. Daraus folgt, dass es einen Index gibt, ab dem es keine Spitzen mehr gibt. B ist die Menge aller Spitzen. 
+
+$$ \Rightarrow n_0 \in \mathbb{N} : \forall n \geq n_0 : n \not \in B $$
+
+Da es nun keine weiteren Spitzen mehr gibt, folgen nur noch Glieder, die größer sind als ihre Vorgänger. Somit definieren wir eine monoton wachsende Teilfolge, indem wir immer das nächste Glied das nächstkleinere Index machen, für das, alle Vorgänger kleiner sind. 
+
+\begin{equation} 
+ \begin{aligned} 
+  n_0 &= N \\
+  n_0+k &:= min\{n>n_k : a_n \geq a_{n_k}\}  
+ \end{aligned} 
+\end{equation}
+ 
+Somit kann in jedem Fall eine montone Teilfolge konstruiert werden. \begin{flushright}
+q.e.d. 
+\end{flushright}
+
+\begin{center}
+\item[Abgeschlossene, offene Mengen]
+\end{center}
+\item Abgeschlossene bzw. offene Mengen abstrahieren abgeschlossene und offene Intervalle. Ein abgeschlossenes Intervall hat den Rand noch mit drin $ [0,1] $ und ein offenes nicht mehr $(0,1)$. Das ist für jetzt, alles was man wissen muss.
+\item \textbf{Satz 3}
+\item A abgeschlossen in M ist äquivalent zu, jeder Häufungspunkt der Menge A liegt in A. 
+\item A abgeschlossen in M $\Leftrightarrow$ $CA := M\backslash A$ ist offen 
+\item Beweis:\\
+\item Ritsu fragen
+
+\subsection*{Satz von Bolzano Weierstrass}
+\addcontentsline{toc}{subsection}{Satz von Bolzano Weierstrass}
+
+\item Man erinnere sich: \textbf{Eine Menge ist beschränkt, wenn sie nach oben und unten beschränkt ist, es also eine obere und untere Schranke gibt und somit gibt es auch ein Supremum und Infimum}
+\item Sei $ A \subset \mathbb{R} ( \textit{ gilt auch in }  \mathbb{R}^n  ) $ dann sind folgende Aussagen äquivalent: \\
+
+1. A ist beschränkt und abgeschlossen \\
+
+2. Jede Folge $(a_n)_{n\in \mathbb{N}}$ aus A hat einen Häufungswert in A \\
+
+3. Jede Folge $(a_n)_{n\in \mathbb{N}} $ aus A besitzt eine in A konvergente Teilfolge $(a_{n_k})_{k\in \mathbb{N}} $ \\
+
+4. Jede beschränkte Folge besitzt eine konvergente Teilfolge und somit einen Häufungspunkt \\
+
+
+
+\newpage
+
+\subsection*{Rechenregeln für Grenzwerte von Folgen}
+\addcontentsline{toc}{subsection}{Rechenregeln für Grenzwerte von Folgen}
+
+\item[Satz 5]
+
+Seien $(a_n)_{n\in \mathbb{N}}$ und $(b_n)_{n\in \mathbb{N}}$ konvergente Folgen in $\mathbb{K}(\mathbb{R}$ oder $\mathbb{C})$ \\
+
+\begin{center}
+$b_0 \neq 0 $ für alle $n \in \mathbb{N}$, $\lim_{n \rightarrow \infty} b_n \neq 0 $ \\
+\end{center}
+
+Dann gilt \\
+
+1. $\lim\limits_{n \rightarrow \infty} (a_n + b_n) = \lim_{n \rightarrow \infty} a_n + \lim_{n \rightarrow \infty} b_n $ \\
+
+2. $\lim_{n \rightarrow \infty} (a_n + b_n) = \lim_{n \rightarrow \infty} a_n \lim_{n \rightarrow \infty} b_n $ \\
+
+3. $$ \lim_{n \rightarrow \infty} ( \frac{a_n}{b_n}) = \frac{\lim_{n \rightarrow \infty} a_n}{\lim_{n \rightarrow \infty} b_n}$$ \\
+
+4. Wenn $$\lim\limits_{n \rightarrow \infty} a_n = a \Rightarrow \lim\limits_{n \rightarrow \infty} \sqrt{a_n} = \sqrt{a} $$
+
+\item[Sandwichlemma]
+
+$(a_n)_{n\in \mathbb{N}}$ , $(b_n)_{n\in \mathbb{N}}$ und $(c_n)_{n\in \mathbb{N}}$ konvergente Folgen \\
+Gilt zusätzlich $ a_n \leq b_n \leq c_n $ und $\lim_{n \rightarrow \infty} a_n = b = \lim_{n \rightarrow \infty} c_n $ , dann konvergiert auch 
+$b_n$ gegen $b$. \\
+
+\item[Satz 6]
+
+Seien $(a_n)_{n\in \mathbb{N}}$ und $(b_n)_{n\in \mathbb{N}}$ konvergente Folgen in $\mathbb{R}$, dann gilt \\
+
+1. $a_n \leq b_n $ für alle $ n \in \mathbb{N} \Rightarrow \lim\limits_{n \rightarrow \infty} a_n \leq \lim\limits_{n \rightarrow \infty} b_n $ \\
+
+2.$|a_n| \leq b_n $ für alle $ n \in \mathbb{N} \Rightarrow |\lim\limits_{n \rightarrow \infty} a_n | \leq \lim\limits_{n \rightarrow \infty} b_n $ \\
+
+\newpage
+
+\subsection*{Zusammenfassung: Konvergenzkriterien}
+\addcontentsline{toc}{subsection}{Zusammenfassung: Konvergenzkriterien}
+
+All diese Kriterien können per Strg-F in diesem Skript gefunden werden. Auch Grenzwertregeln von den Übungsblättern sollten hier verzeichnet sein.\\
+
+1. Definition $|a_n-a|<\varepsilon$ \\
+2. Grenzwertsätze \\
+3. Folge die monoton wachsend bzw. steigend ist und nach oben bzw. unten beschränkt ist konv. gegen ihr Supremum bzw. Infimum \\
+
+4. Sandwichlemma \\
+5. Zeigen, dass $$\limsup\limits_{n \rightarrow \infty} a_n = c = \liminf\limits_{n \rightarrow \infty} b_n$$ Dann konvergiert die Folge gegen $c$. \\
+
+\subsection*{Geometrische Folgen }
+\addcontentsline{toc}{subsection}{Geometrische Folge 2.16}
+
+Die geometrische Folge ist definiert durch 
+$$ a_n = cq^n$$
+
+\item[Lemma 4. 2.16] 
+
+Für alle $q\in \mathbb{R}, |q| < 1$ konvergiert die geometrische Folge $a_n = cq^n$ gegen Null. \\
+
+\item[Lemma 2.17]
+Die geometrische Reihe 
+$$ S_n= 1+q+q^2+...+q^n = \sum\limits_{i=0}^n q^{i} $$
+konvergiert für $|q| < 1$ und $$\lim\limits_{n \rightarrow \infty} S_n = \frac{1}{1-q} $$
+
+\newpage
+
+\subsection*{Umgebung}
+\addcontentsline{toc}{subsection}{Umgebung 2.19}
+
+$A\subset \mathbb{K}$ heißt eine Umgebung von $a \in \mathbb{K} \Leftrightarrow \exists \varepsilon > 0 $ sodass $I_{\varepsilon}(a) \subset A$ \\
+$I_{\varepsilon}(a) := (a-\varepsilon,a+\varepsilon) $
+
+\item[Folgerung 2.20]
+Aus der Definition folgt: \\
+
+1. Sei $U_i, i \in I$ Umgebung von a, so ist $\cup_{i \in I}$ Umgebung von a \\
+
+2. Sind $U_1,...,U_n$ Umgebung von a, so ist auch $U_1 \cap ... U_n$ Umgebung von $a$ \\
+
+3. Für alle Umgebungen von $a$ existiert eine Umgebung von a, sodass $ \forall y \in V,U$ Umgebung von y ist \\
+
+\item[Definition 2.2.1]
+
+1. $ A \subset \mathbb{K} \Leftrightarrow \forall a \in A $ ist $A$ die Umgebung von $A$ \\
+2.  $ A \subset \mathbb{K}$ heißt abgeschlossen $\Leftrightarrow$ $\mathbb{K} \backslash \{A\}$ offen \\
+3. Abschließung von A: \\
+$ \overline{A}:= \{a \in K | a \in A $ oder Häufungspunkt von $a \in A \}$ \\
+
+4. Rand von A: \\
+$\delta A:= \{a \in \mathbb{K}| $ Für jede Umgebung U von $a:A\cap U \neq \not 0$ oder $CA \cap U \neq \not 0 \}$\\
+
+\newpage
+
+\subsection*{Summenregeln ( Rechenregeln )}
+\addcontentsline{toc}{subsection}{Summenregeln ( Rechenregeln )}
+
+Passend zu den kommenden Reihen, hier Rechenregeln für Summen \\
+
+1. $$ \sum\limits_{k=m}^n a_k = \sum\limits_{j=m}^n a_j $$ 
+2. $$ c  \sum\limits_{k=m}^n a_k = \sum\limits_{k=m}^n c a_k $$
+3. $$ \sum\limits_{k=m}^n a_k + \sum\limits_{k=m}^n b_k = \sum\limits_{k=m}^n (a_k + b_k) $$
+4. $$ \sum\limits_{k=m}^n a_k +\sum\limits_{k=n+1}^p a_k = \sum\limits_{k=m}^p a_k $$
+5. $$ \sum\limits_{k=m}^n a_k = \sum\limits_{k=m+p}^{n+p} a_{k-p} = \sum\limits_{k=m-p}^{n-p} a_{k+p} $$
+6. $$ ( \sum\limits_{i=1}^n a_i ) ( \sum\limits_{j=1}^m b_j ) = \sum\limits_{i=1}^n  \sum\limits_{j=1}^m a_i b_j 
+= \sum\limits_{j=1}^m \sum\limits_{i=1}^n  a_i b_j $$ 
+
+\newpage
+
+\section*{Reihen ( Unendliche Summen ) }
+\addcontentsline{toc}{section}{Reihen ( Unendliche Summen )}
+
+Definition 2.19 \\
+Eine Reihe ist definiert als Folge der Partialsummen. Somit ist $(S_n)_{n\in \mathbb{N}}$ eine Folge der Partialsummen \\
+$$ S_n:= \sum\limits_{k=0}^n a_k $$
+und man nennt diese Folge eine Reihe. \\
+Die Partialsumme ist als Summe aller Glieder bis zum Glied n zu verstehen. Also ist $S_2$ die ersten beiden Glieder summiert 
+( wenn die Folge bei 1 startet) \\
+
+\item[Satz 7] 
+Seien $\sum\limits_{k=m}^{\infty} a_k$ und $\sum\limits_{k=m}^{\infty} b_k$ konvergente Reihen, $\alpha \in \mathbb{R}$, dann sind auch die Reihen
+
+$$ \sum\limits_{k=m}^{\infty} (a_k+b_k) $$ und  $$\sum\limits_{k=m}^{\infty} \alpha a_k$$
+
+konvergent und es gelten die gleichen Rechenregeln wie auch schon bei den Grenzwertsätzen. \\
+
+\newpage
+
+\subsection*{Reihen ( Konvergenzkriterien für Reihen ) }
+\addcontentsline{toc}{subsection}{Konvergenzkriterien für Reihen}
+
+Das Cauchy Kriterium für Partialsummen besagt, dass eine Reihe genau dann konvergent ist, wenn \\
+
+$\forall \varepsilon >0 $ existiert $ n_\varepsilon \in \mathbb{N} $ sodass für alle $n>m\geq  n_\varepsilon$ gilt 
+
+$$ |s_n - s_m| = |\sum\limits_{k=m+1}^{n} a_k| < \varepsilon $$
+
+\item[Lemma 2.2.8]
+Eine Reihe kann nur dann konvergent sein, wenn ihre Partialsummen beschränkt sind und ihre Glieder eine Nullfolge bilden: \\
+
+\item[Satz 8] 
+Sei $(a_k)_{k \in \mathbb{N}}$ eine Nullfolge. Dann folgt $\sum\limits_{k=1}^{\infty} (a_k - a_{k+1})=a_1$
+
+\item[Definition 2.31]
+Eine Reihe $s_{\infty}$ in $\mathbb{R}$ heißt alternierend, wenn ihre Elemente alternierende Vorzeichen haben.
+
+\item[Satz 9]
+Eine \textbf{alternierende} Reihe ist konvergent, wenn die Absolutbeträge ihrer Glieder eine monton fallende Nullfolge bilden. \\
+
+2. Für die Reihenreste gilt dabei die Abschätzung: \\
+$$ |\sum\limits_{k=m}^{\infty} a_k| \leq |a_m|$$
+
+Dieser Satz ist äquivalent zum Leibnizkriterium. \\
+
+\item[\textbf{Leibnizkriterium}]
+
+Sei $(a_n)_{n \in \mathbb{N}}$ eine monton fallende bzw. wachsend, reele Nullfolge, dann konvergiert die \textbf{alternierende Reihe}
+
+$$ \sum\limits_{n=0}^{\infty} (-1)^n a_k$$
+
+Das Kriterium hilft nicht bei der Grenzwertermittlung. \\
+
+\end{document}
