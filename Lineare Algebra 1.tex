@@ -8,6 +8,13 @@
 \usepackage[utf8]{inputenc}
 
 \makeatletter
+\newcommand\xleftrightarrow[2][]{%
+  \ext@arrow 9999{\longleftrightarrowfill@}{#1}{#2}}
+\newcommand\longleftrightarrowfill@{%
+  \arrowfill@\leftarrow\relbar\rightarrow}
+\makeatother
+
+\makeatletter
 \def\myItem{%
    \@ifnextchar[ \@myItem{\@noitemargtrue\@myItem[\@itemlabel]}}
 \def\@myItem[#1]{\item[#1]\mbox{}\\}
@@ -901,21 +908,123 @@ r, \textit{      falls V endlich erzeugt, r Länge einer und somit jeder Basis v
 
 heißt die Dimension von V über K. Ist die Dimension von V $\in \mathbb{N}_0$ dann heißt V endlich dimensional. \\
 Nach 9.8. ist dieser Begriff wohldefiniert, also egal wie die Basis aussieht, irgendeine Bezeichnung endlich oder unendlich dimensional passt. \\
-
+\begin{center}
 \item[Folgerung 9.11]
+\end{center}
 V endlichdimensional K-VR, $U \subset V$ UVR von V \\
 
 (a) U ist endlichdimensional \\
 (b) $\textit{dim}_k U \leq \textit{dim}_k V $ \\
 (c) Es ist $U=V \Leftrightarrow \textit{dim}_k U = \textit{dim}_k V$ \\
 
-
-\item[Satz 9.12 Basisergänzungssatz ]
-V endlichdim K-VR, $(u_1,...,u_n)$ lin. unabh. Familie in V \\
+\begin{center}
+\myItem[Satz 9.12 Basisergänzungssatz ]
+\end{center}
+V endlichdimensionaler K-VR, $(u_1,...,u_n)$ lin. unabh. Familie in V \\
 Dann ex. $u_{n+1}...,u_r \in V \; \; r = \textit{dim  }V$ , sodass \\
 $B=(u_1,...,u_n,u_{n+1}...,u_r)$ eine Basis von V ist. \\
 
 Das bedeutet, mann kann jede linear unabhängige Familie in V zu einer Basis ergänzen. \\
+
+\newpage
+\begin{center}
+\myItem[9.13 Zornsches Lemma]
+\end{center}
+Jede induktiv geordnete nichtleere Menge $(M, \leq)$ besitzt ein maximales Element. Hierbei heißt eine halbgeordnete Menge $(M, \leq)$ \textbf{induktiv geordnet} \\
+$\Leftrightarrow$ Jede Teilmenge $T \subseteq M$, für die $(T, \leq)$ totalgeordnet ist, besitzt eine obere Schranke in $(M, \leq)$, d.h. es ex. ein $S\in M$ mit $t \leq S$ für alle $t \in T$ \\
+
+Anm: Das Zornsche Lemma ist äquivalent zum Auswahlaxiom. \\
+
+\begin{center}
+\myItem[Satz 9.14]
+\end{center}
+$(u_j)_{j \in J}$ lin unabh. Familie in V \\
+Dann kann $(u_j)_{j \in J} $ zu einer Basis von V ergänzt werden, d.h. es ex. eine Menge $I$, mit $I \subseteq J$ und eine Familie $(v_i)_{i \in I} $ mit $v_j = u_j$ für alle $j \in J$, sodass $(v_i)_{i \in I} $ eine Basis von V ist. \\
+Insbesondere besitzt jeder K-VR eine Basis. \\
+
+Anmerkung: \\
+Der Satz "Jeder VR hat eine Basis" ist äquivalent zum Auswahlaxiom. \\
+
+\section*{Matrizen}
+\addcontentsline{toc}{section}{10§ Matrizen}
+
+\myItem[Disclaimer:]
+Viele triviale Definition mit vielen Indizes etc. sind hier ausgelassen worden und wurden auf Papier niedergeschrieben. \\
+
+In diesem Abschnitt seien $m,n,r \in \mathbb{N}$
+
+Frage zur Einführung: Gegeben sei ein UVR $U= Lin((v_1,...,v_m)) \subseteq \mathbb{K}^n$ Wie bestimmt man effizient eine Basis von U? \\
+
+\myItem[Def. 10.1 Matrix]
+Eine $m \times n$ Matrix mit Einträgen aus K ist eine Familie 
+$(a_{11},...,a_{1n},...,a_{21},...,a_{2n},...,a_{m1},...,a_{mn})$ von $m \times n$ Elementen aus K, die wir in der Form 
+
+
+$$ (a_{ij})_{1 \leq i \leq m \wedge 1 \leq j \leq n}
+\begin{pmatrix}
+a_{11} & ... & ... & a_{1n} \\
+... & ... & ... & ... \\
+... & ... & ... & ... \\
+a_{m1} & ... & ... & a{mn}
+\end{pmatrix}
+$$ 
+
+kurz auch $(a_{ij})$. Die Menge aller $m\times n$ Matrizen mit EInträgen aus K bez. wir mit 
+$M(m\times n, K)$ \\
+
+Für $(a_{ij})$ wie oben heißen $a_{in}$ die Zeilen der Matrix A. Das andere sind dann die Spalten. Man denke an die Zeilen eines Blattes, die gehen ebenfalls horizontal. \\
+
+\myItem[Bem 10.2] 
+Es gilt : \\
+(a) $M(m \times n, K) $ist bzgl. der Verknüpfungen  \\
+$+: M(m \times n, K) \times M(m \times n, K) \rightarrow M(m \times n, K), (a_{ij}) + (b_{ij}):= (a_{ij}+b_{ij})$\\
+
+$*: K\times M(m \times n, K) \times M(m \times n, K) \rightarrow M(m \times n, K), (a_{ij}) * \lambda := (\lambda a_{ij})$ \\
+
+(b) 
+
+$ * : M(m \times \textbf{n}, K) \times M(m \times \textbf{n}, K) \rightarrow M(m \times n, K)$ ist die Matrizenmultiplikation definiert.
+
+Diese Operation ist nur dann erklärt, wenn die Anzahl der Zeilen der ersten Matrix gleich der Anzahl der zweiten Matrix ist. Das dickgedruckte n oben. \\
+
+Visualisierung dessen auf Papier. \\
+
+Für diese gilt: \\
+Sind $A_1,A_2 \in M(m\times n, K)$, $B_1,B_2 \in M(n\times r, K)$, $C \in M(r\times s, K), \lambda in \mathbb{K}$, dann ist \\
+
+\begin{enumerate}
+\item $A(B_1+B_2) = AB_1+AB_2$ und andersherum \\
+\item $A(\lambda B) = (\lambda A)B = \lambda (AB)$ \\
+\item $E_m A = A E_n = A$ \\
+\end{enumerate}
+
+Hierbei ist für $l \in \mathbb{N}$ : \\
+$$ E_l:= \begin{pmatrix}
+1 & \dots & \dots \\
+\dots & 1 & \dots \\
+\dots & \dots & 1  
+\end{pmatrix}
+$$ 
+und heißt die $l\times l $ Einheitsmatrix über K. \\
+
+(c) $M(m\times n, K)$ ist bzgl + und $\times$ ein Ring. ( Einselement: Einheitsmatrix). Für $n>1$ ist dieser Ring nicht kommutativ. \\
+
+\newpage
+
+\myItem[10.3] $A \in M(n \times n,K)$
+A heißt invertierbar $\Leftrightarrow $ Es ex. $B \in M(n \times n,K)$ mit $AB = BA = E_n$ \\
+
+\myItem[10.4]
+Wir bilden nun die allgemeine lineare Gruppe, die alle invertierbaren Matrizen enthält: \\
+
+$GL(n,k):=\{A \in M(n \times n,K) | A ist invertierbar\}$
+
+Es ist durch die reguläre Addition und die Matrizenmultiplikation definiert. \\
+
+
+
+
+
 
 
 

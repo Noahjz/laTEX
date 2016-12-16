@@ -1,7 +1,7 @@
 \select@language {ngerman}
 \contentsline {section}{Logik}{3}
 \contentsline {section}{Mengenlehre}{6}
-\contentsline {section}{Zahlenbereiche}{9}
+\contentsline {section}{Zahlenbereiche}{10}
 \contentsline {subsection}{Gr\IeC {\"o}\IeC {\ss }tes, kleinstes Element}{14}
 \contentsline {subsection}{Schranken}{17}
 \contentsline {subsection}{Supremum}{17}
@@ -22,3 +22,5 @@
 \contentsline {subsection}{Summenregeln ( Rechenregeln )}{47}
 \contentsline {section}{Reihen ( Unendliche Summen )}{48}
 \contentsline {subsection}{Konvergenzkriterien f\IeC {\"u}r Reihen}{49}
+\contentsline {subsection}{Potenzreihen}{53}
+\contentsline {section}{Grenzwerte und Stetigkeit}{55}

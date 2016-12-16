@@ -2,3 +2,4 @@
 \contentsline {section}{Gruppen, Ringe und K\IeC {\"o}rper}{3}
 \contentsline {section}{Polynome}{16}
 \contentsline {section}{Vektorr\IeC {\"a}ume}{23}
+\contentsline {section}{10\IeC {\textsection } Matrizen}{41}

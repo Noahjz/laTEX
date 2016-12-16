@@ -13,6 +13,12 @@
 \def\@myItem[#1]{\item[#1]\mbox{}\\}
 \makeatother % Wir definieren uns hier eine sauberere myItem Funktion als \item[]
 
+\makeatletter
+\def\myItemc{%
+   \@ifnextchar[ \@myItem{\@noitemargtrue\@myItem[\@itemlabel]}}
+\def\@myItemc[#1]{\item[#1]\mbox{}\\}
+\makeatother % My Item, aber automatisch gecentert // funktioniert noch nicht so wirklich
+
 \begin{document}
 
 \begin{titlepage}
@@ -351,7 +357,7 @@ $$ \forall x \in M, e \geq x $$
 \item Dann gilt analog $$ \forall x \in M, a \leq x $$ \\
  a ist dann ein Minimum.
 \item \textbf{Wichtige Bemerkung} Besitzt eine Menge ein kleinstes bzw. größtes Element, so ist dies eindeutig bestimmt. Dies folgt aus der Antisymmetrie und kann leicht bewiesen werden.
-\item \textbf{Wichtige Bemerkung} Ein größtes bzw. kleinstes Element ist immer automatisch auch ein minimales bzw. maximales Element.
+\item \textbf{Wichtige Bemerkung} Ein größtes bzw. kleinstes Element ist immer automatisch auch ein minimales bzw.  es Element.
 
 \newpage
 
@@ -1151,12 +1157,166 @@ $$ |\sum\limits_{k=m}^{\infty} a_k| \leq |a_m|$$
 
 Dieser Satz ist äquivalent zum Leibnizkriterium. \\
 
+\newpage
+
+\begin{center}
 \item[\textbf{Leibnizkriterium}]
+\end{center}
 
 Sei $(a_n)_{n \in \mathbb{N}}$ eine monton fallende bzw. wachsend, reele Nullfolge, dann konvergiert die \textbf{alternierende Reihe}
 
 $$ \sum\limits_{n=0}^{\infty} (-1)^n a_k$$
 
 Das Kriterium hilft nicht bei der Grenzwertermittlung. \\
+
+\begin{center}
+\myItem[Def: 2.34 Absolute Konvergenz]
+\end{center}
+
+$\sum\limits_{k=1}^{\infty} a_k$ heißt absolut konvergent genau dann wenn $\sum\limits_{k=1}^{\infty} |a_k|$ konvergent ist. \\
+
+\myItem[Satz 2.35]
+Sei $\sum\limits_{k=1}^{\infty} |a_k|$ absolut konvergent. Dann ist $\sum\limits_{k=1}^{\infty} a_k$ auch konvergent. \\
+
+Folgt direkt aus Cauchy Konvergenzkriterium für Reihen und intuitiv, da die absoluten Glieder größergleich die normalen Summanden sind. \\
+
+\newpage
+
+\begin{center}
+\myItem[Umordnungssatz 2.36]
+\end{center}
+
+Sei $\sum\limits_{k=1}^{\infty} a_k$ eine \textbf{absolut} konvergente Reihe in $\mathbb{R}$. Dann gilt für jede bijektive Abbildung \\
+$ \tau : \mathbb{N} \rightarrow \mathbb{N} $
+
+$$\sum\limits_{k=1}^{\infty} a_{\tau (k)} = \sum\limits_{k=1}^{\infty} a_k$$ 
+
+Das ist ein komplizierter Weg zu sagen, man darf bei einer absolut konvergenten Reihe die Summanden beliebig klammern, vertauschen etc.. Wenn die Reihe nicht
+absolut konvergiert, können dort verschiedene Ergebnisse rauskommen. \\
+
+
+\myItemc[Satz 9.11 Cauchy Produkt]
+Sei $\sum\limits_{k=0}^{\infty} a_k$ und $\sum\limits_{k=0}^{\infty} b_k$ zwei absolut konvergente Reihen. Für $n\in \mathbb{N}$ setzen wir \\
+$$c_n := \sum\limits_{k=0}^{n} a_{n-k} b_k $$
+Dann konvergiert die Reihe $\sum\limits_{k=0}^{\infty} c_k$ absolut und es gilt : \\
+
+$$\sum\limits_{k=0}^{\infty} c_k = (\sum\limits_{k=0}^{\infty} a_k)(\sum\limits_{k=0}^{\infty} b_k)$$
+
+\myItemc[Satz 9.4 Majoranten- und Minoratenkriterium]
+Seien $\sum a_k,\; \sum b_k$ zwei Reihen \\
+
+\begin{enumerate}
+\item Gilt $0 \leq |a_k| \leq b_k $ ab einem $k_0$ und ist die Majorante $\sum b_k$ konvergent, so konvergiert $\sum a_k$ absolut.
+\item Gilt $0 \leq a_k \leq b_k $ ab einem $k_0$ und ist die Minorante $\sum a_k$ divergent, so divergiert $\sum b_k$. 
+\end{enumerate}
+
+\newpage
+
+\myItemc[Wurzelkriterium]
+Seien $\sum a_k$ eine Reihe \\
+
+\begin{enumerate}
+\item Wenn $\limsup_{k \rightarrow \infty} \sqrt[k]{|a_k|} < 1$, dann konvergiert die Reihe absolut. \\
+\item Wenn $\limsup_{k \rightarrow \infty} \sqrt[k]{|a_k|} = 1$, dann liefert das Wurzelkriterium über Konvergenz und Divergenz keine Aussage. \\
+\item Wenn $\limsup_{k \rightarrow \infty} \sqrt[k]{|a_k|} > 1$, dann divergiert die Reihe. \\
+\end{enumerate}
+
+Dies folgt aus der Majoranten- und Minoratenkriterium und aus der Konvergenz der geometrische Reihe, falls $q \in (0,1)$ für $q^k$ \\
+
+\myItemc[Quotientenkriterium]
+
+\begin{enumerate}
+\item Wenn $\lim_{k \rightarrow \infty} |\frac{a_{k+1}}{a_k}| < 1$, dann konvergiert die Reihe absolut. \\
+\item Wenn $\lim_{k \rightarrow \infty} |\frac{a_{k+1}}{a_k}| = 1$, dann liefert das Wurzelkriterium über Konvergenz und Divergenz keine Aussage. \\
+\item Wenn $\lim_{k \rightarrow \infty} |\frac{a_{k+1}}{a_k}| > 1$, dann divergiert die Reihe. \\
+\end{enumerate}
+
+Dies folgt ebenfalls aus der Majoranten- und Minoratenkriterium und aus der Konvergenz der geometrische Reihe, falls $q \in (0,1)$ für $q^k$ \\
+
+\begin{center}
+\myItemc[Cauchy Verdichtungssatz]
+\end{center}
+
+Sei $(a_n)_{n\in \mathbb{N}}$ eine monton fallende Folge nicht negativer reeler Zahlen. Dann hat die unendliche Reihe
+
+$$ S = \sum\limits_{n=1}^{\infty} a_k$$
+
+das gleiche Konvergenzverhalten wie die verdichtete Reihe 
+$$ T = \sum\limits_{k=0}^{\infty} 2^k a_{2^k}=a_1+2 a_2 + 4 a_4 + 8 a_8 $$ 
+
+Somit konvergiert die eine Reihe, genau dann wenn die andere konvergiert. \\
+
+\subsection*{Potenzreihen}
+\addcontentsline{toc}{subsection}{Potenzreihen}
+
+\myItem[Potenzreihe]
+
+$$ S_{\infty} = \sum\limits_{k=0}^{\infty} c_k(x-x_0)^k$$
+
+heißt Potenzreihe mit den Koeffizienten $c_k \in \mathbb{K}$, Entwicklungspunkt $x_0 \in \mathbb{K}$ und  Argument $x \in \mathbb{K} $ \\ 
+
+Man kann sich diese Reihe als ein Polynom vorstellen, welches ein Zentrum (einen Ursprung besitzt), welchen wir $x_0$ nennen ( oft auch $c$, wenn wir über Funktionen sprechen.). $x_0$ ist eine Konstante. \\
+
+\myItem[Konvergenzradius]
+ 
+Betrachtet man nun diese Potenzreihe, kann man sich fragen, für welchen Input die Summe konvergiert. Man definiert diesen Konvergenzradius, als das größte 
+$$ p:= |x-x_0| $$ für dass die Potenzreihe konvergiert. Das größte sup$ p:= r$ und $r$ ist dann unser Konvergenzradius.\\
+
+Dieser lässt sich bestimmten durch die Formel von \textbf{Cauchy Hadamard}, sei $r$ der Konvergenzradius
+$$ r = \frac{1}{\limsup\limits_{n \rightarrow \infty} (\sqrt[n]{a_n})} $$
+
+Anmerkung: $r$ ist als 0 definiert, wenn der $\limsup$ sich unendlich annähert und $r=\infty$, falls er gleich 0 ist. \\
+
+Einfacher kann der Konvergenzradius durch Eulers Formel berechnet werden
+
+$$r= \lim\limits_{n \rightarrow {\infty}} |\frac{a_n}{a_{n+1}}| $$
+
+\textbf{Wichtig, diese vereinfachte Formel kann nur angewendet werden, wenn dieser Grenzwert existiert und wenn alle Indizes ab einem bestimmten Index ungleich Null sind}
+
+\myItem[Exponentialreihe]
+
+$$\textit{exp}(x):= \sum\limits_{k=0}^{\infty} \frac{x^k}{k!}$$
+
+ist eine Potenzreihe. Ihr Konvergenzradius ist $\infty$
+
+\myItem[Eulersche Zahl]
+
+$$\textit{exp}(1)= \sum\limits_{k=0}^{\infty} \frac{1}{k!} = \lim\limits_{n \rightarrow \infty} (1+\frac{1}{n})^n $$
+
+\newpage
+
+\section*{Grenzwerte und Stetigkeit}
+\addcontentsline{toc}{section}{Grenzwerte und Stetigkeit}
+
+\myItem[Grenzwerte von Funktionen]
+
+Es sei $D \subset \mathbb{R} $ und eine Funktion $f:D \rightarrow \mathbb{R} $ 
+
+$$\bar{D}:= \{a \in \mathbb{R} : \exists \textit{ Folge } (x_n)_{n \in \mathbb{N}} \textit{ mit } x_n \in D \textit{ und } \lim\limits_{n \rightarrow {\infty}} = a \} $$
+
+Das bedeutet, $\bar{D}$ ist der Abschluss von D, wo D die Definitionsmenge ist. Dieser Abschluss beinhaltet auch alle möglichen Grenzwerte von Folgen, die alle ihre Glieder in dem regulären $D$ haben. ( Für $1/x$ zum Beispiel $0 \in \bar{D}$) \\
+
+\myItem[Stetigkeit Folgendefinition]
+Eine Funktion $f:D \rightarrow \mathbb{R} $ heißt stetig in $x_0 \in D$, wenn Folgendes gilt: \\
+Für $$\lim\limits_{x \rightarrow x_0} f(x) = f(x_0) $$
+Gilt dies für jedes $x \in D$, dann ist die Funktion stetig. \\
+Das bedeutet einfach nur, dass man wenn man sich einem $f(x_0)$ graphisch annähert, man nicht auf einmal beim richtigen Einsetzen $f(x_0)$ ganz woanders landet. \\
+
+Dies bietet sich auch immer an, um zu zeigen dass eine Funktion \textbf{nicht stetig} ist. \\
+
+\myItem[$\varepsilon - \delta $Definition der Stetigkeit]
+Eine Funktion $f:D \rightarrow \mathbb{R} $ heißt stetig in $x_0 \in D$, wenn Folgendes gilt: \\
+$$\forall \varepsilon > 0 \exists \delta > 0 \textit{ , sodass } |f(x)-f(x_0)| < \varepsilon \; \forall x \in D mit |x-x_0| < \delta $$
+
+Nicht Stetigkeit bedeutet also genau die Negation davon. \\
+
+Anschaulich bedeutet diese Definition lediglich, dass für eine minmale Veränderung von $x$ sich $f(x)$ nicht großartig verändert. Mathematischer ausgedrückt: \\
+Zu jeder noch so kleinen Umgebung $U_{f(x)}$ kann man eine kleine Umgebung $U(x)$ finden, sodass $U(x)$ komplett in $U_{f(x)}$ abgebildet werden kann. \\
+
+Diese Definition ist viel nützlicher, um Stetigkeit nachzuweisen, da man mit der Folgendefinition jeden einzelnen Punkt und jede Folge zeigen müsste, was kaum möglich ist. \\
+
+
+
+
 
 \end{document}
