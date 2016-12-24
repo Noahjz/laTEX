@@ -1,4 +1,4 @@
-PWD /Users/noah/Google Drive/uni docs/MATHE LATEX
+PWD /Users/noah/Documents/laTEX
 INPUT /usr/local/texlive/2016/texmf.cnf
 INPUT /usr/local/texlive/2016/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2016/texmf-var/web2c/pdftex/pdflatex.fmt
@@ -59,6 +59,19 @@ INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/base/ot1enc.dfu
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/base/ot1enc.dfu
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/base/omsenc.dfu
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/base/omsenc.dfu
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/physics/physics.sty
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/physics/physics.sty
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/l3kernel/expl3.sty
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/l3kernel/expl3.sty
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/l3kernel/expl3-code.tex
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/l3kernel/expl3-code.tex
+INPUT /usr/local/texlive/2016/texmf-dist/tex/generic/unicode-data/UnicodeData.txt
+INPUT /usr/local/texlive/2016/texmf-dist/tex/generic/unicode-data/CaseFolding.txt
+INPUT /usr/local/texlive/2016/texmf-dist/tex/generic/unicode-data/SpecialCasing.txt
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/l3kernel/l3pdfmode.def
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/l3kernel/l3pdfmode.def
 INPUT Analysis 1.aux
 INPUT Analysis 1.aux
 OUTPUT Analysis 1.aux

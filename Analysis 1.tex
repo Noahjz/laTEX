@@ -6,6 +6,7 @@
 \usepackage{times}
 \setlength{\parindent}{0cm}
 \usepackage[utf8]{inputenc}
+\usepackage{physics}
 
 \makeatletter
 \def\myItem{%
@@ -39,6 +40,8 @@
 \tableofcontents
 
 \newpage
+
+Falls nicht anders angemerkt, sind alle Theoreme, Anmerkungen etc. bereits bewiesen in der Vorlesung oder in den Übungen, sodass man sie verwenden kann. \\
 
 \section*{Logik}
 \addcontentsline{toc}{section}{Logik}
@@ -122,6 +125,34 @@ x:=y bedeutet, x ist \textbf{per Definition} gleich y \\
 OE oder o.B.d.A für : "Ohne Beschränkung der Allgemeinheit" bzw. "ohne Einschränkung" und bedeutet soviel wie, es wird nur ein Fall gezeigt, aber die anderen Fälle funktionieren analog und ich spare mir hier Schreibarbeit. \\
 
 a|b für a teilt b \\
+
+
+
+
+\section*{Tipps zu Beweisen ( z.B. Umformungen )}
+\addcontentsline{toc}{section}{Tipps zu Beweisen ( z.B. Umformungen )}
+
+
+\begin{center}
+
+\myItem[Geometrische Summenformel]
+\end{center}
+
+
+\begin{enumerate}
+
+\item $ a^{n+1} - b^{n+1} = (a-b) \sum\limits_{k=0}^n a^k b^{n-k}$\\
+\item $ \frac{a^{n+1} - b^{n+1}}{a-b} = \sum\limits_{k=0}^n a^k b^{n-k}$
+
+\end{enumerate}
+
+Die erste Identität folgt einfach durch vollständige Induktion. Die zweite folgt dann direkt durch das Kürzen von $(a-b)$
+
+\begin{center}
+\myItem[Verallgemeinerte Dreiecksungleichung]
+\end{center}
+
+$$ \abs{\sum\limits_{k=1}^n a_k} \leq \sum\limits_{k=1}^n \abs{a_k} $$
 
 
 \end{itemize}
@@ -581,6 +612,17 @@ Weiterhin überlegen wir uns bei $\frac{n\times (n-1)* (n-2)*...(n-(k-1)}{k!}$ ,
 \item $$ \binom{n+1}{k+1} = \binom{n}{k} + \binom{n}{k+1} $$
 \item Lässt sich durch algebraische Manipulation zeigen, siehe Skript.
 
+\myItem[Nützliche Identitäten]
+
+\begin{enumerate}
+
+\item $ \binom{n}{k} = \binom{n-1}{k-1}+\binom{n-1}{k} $ \\
+\item $ \binom{n+1}{k+1} = \binom{n}{k+1} + \binom{n}{k} $
+
+\end{enumerate}
+
+Beides folgt durch Nachrechnen und die Identitäten folgen ebenfalls auseinander. \\
+
 \begin{center}
 \item[Lemma 1.51]
 \end{center}
@@ -706,6 +748,67 @@ Haben wir also nun eine komplexe Zahl gegeben, müssen wir lediglich den Winkel 
 Sei $z = 2 + 3i $, dann ist $ tan(\alpha)= \frac{opp}{adj} = \frac{2}{3} $ nun müssen wir den Arctan benutzen, um unseren Winkel zu bekommen in Radians ! Außerdem muss man $ + \pi $ rechnen, da wir jetzt sozusagen den $ 180 \deg $ gegenüberliegenden Winkel berechnet haben. ( Ein Kreis in Radians = $ 2 \pi  $ ). \\
 
 Somit ist $z = 2 + 3i $ in Polarkoordinatenform dann $ z = |z| ( cos(3,3) + sin (3,3) * i ) $ , sinus war die imaginäre Achse,deshalb das i. \\
+
+\newpage
+
+\subsection*{Trigonometrische Funktionen}
+\addcontentsline{toc}{subsection}{Trigonometrische Funktionen}
+
+\myItem[Eulersche Formel]
+
+Die Trig. Funktionen leiten sich analytisch hauptsächlich aus dieser Formel ab, $\forall x \in \mathbb{R}$: \\
+
+$$ e^{ix} = \cos(x)+i \sin(x) $$
+
+Ebenso: $sin(0)=0$ und $cos(0)=1$ oder aus der Def. vom Einheitskreis folgt es ebenso
+
+\myItem[Sinus und Cosinus]
+
+Dann folgt analytisch: \\
+
+$$ \sin(x):= Im e^{ix}= \frac{e^{ix}-e^{-ix}}{2i} $$
+$$  \cos(x) := Re e^{ix} = \frac{e^{ix}+e^{-ix}}{2} $$
+
+\myItem[Identitäten]
+
+\begin{enumerate}
+\item $\sin(x)=-\sin(-x)$ \\
+\item $\cos(x)=\cos(-x)$ \\
+\item $\sin^2(x)+\cos^2(x)=1$ \\
+\item $\abs{\sin(x)} \leq 1$ \\
+\item $\abs{\cos(x)} \leq 1$ \\
+\end{enumerate}
+
+Folgt alles durch Nachrechnen mit obiger Definition. Additionstheoreme sind ebenfalls nützlich und folgen ebenfalls aus der analytischen Sinusdefinition. \\
+
+\begin{center}
+\myItem{Additionstheoreme}
+\end{center}
+
+\begin{enumerate}
+\item $\sin(x+y)=\sin(x)\cos(y)+\cos(x)\sin(y)$ \\
+\item $\sin(x-y)=\sin(x)\cos(y)-\cos(x)\sin(y)$ \\
+\item $\cos(x+y)=\cos(x)\cos(y)-\sin(x)\sin(y)$ \\
+\item $\cos(x-y)=\cos(x)\cos(y)+\sin(x)\sin(y)$ \\
+\end{enumerate}
+
+Es gibt viele weitere Identitäten, welche jedoch nur auf Bedarf angeguckt werden sollten, da sich diese kein Mensch merken kann.. Weiterhin kann man diese alle relativ leicht herleiten bzw. beweisen. \\
+
+\begin{center}
+\myItem{Eigenschaften der Trig. Funktionen}
+\end{center}
+
+Sinus und Cosinus sind auf $\mathbb{R}$ gleichmäßig stetig. Kann man mit einer Menge Rechnung und den Add. Theoremen zeigen. \\
+
+\begin{center}
+\myItem{Reihendarstellung}
+\end{center}
+
+\begin{enumerate}
+\item $ \sin(x) = \sum\limits_{k=0}^{\infty}(-1)^k \frac{x^{2k+1}}{(2k+1)!}$ 
+\item $ \cos(x) = \sum\limits_{k=0}^{\infty}(-1)^k \frac{x^{2k}}{(2k)!}$ 
+\end{enumerate}
+
 
 \newpage
 
@@ -1194,13 +1297,19 @@ $$\sum\limits_{k=1}^{\infty} a_{\tau (k)} = \sum\limits_{k=1}^{\infty} a_k$$
 Das ist ein komplizierter Weg zu sagen, man darf bei einer absolut konvergenten Reihe die Summanden beliebig klammern, vertauschen etc.. Wenn die Reihe nicht
 absolut konvergiert, können dort verschiedene Ergebnisse rauskommen. \\
 
-
+\begin{center}
 \myItemc[Satz 9.11 Cauchy Produkt]
+\end{center}
 Sei $\sum\limits_{k=0}^{\infty} a_k$ und $\sum\limits_{k=0}^{\infty} b_k$ zwei absolut konvergente Reihen. Für $n\in \mathbb{N}$ setzen wir \\
 $$c_n := \sum\limits_{k=0}^{n} a_{n-k} b_k $$
 Dann konvergiert die Reihe $\sum\limits_{k=0}^{\infty} c_k$ absolut und es gilt : \\
 
 $$\sum\limits_{k=0}^{\infty} c_k = (\sum\limits_{k=0}^{\infty} a_k)(\sum\limits_{k=0}^{\infty} b_k)$$
+
+Für das Cauchy Produkt von zwei Potenzreihen: \\
+$$\left(\sum\limits_{i=0}^{\infty} a_i x^{i} \right) * \left(\sum\limits_{j=0}^{\infty} b_j x^{j} \right) = \left(\sum\limits_{k=0}^{\infty} c_k x^{k} \right) $$
+
+Wo $$ c_k = \left(\sum\limits_{l=0}^{k} a_l b_{k-l} \right) $$
 
 \myItemc[Satz 9.4 Majoranten- und Minoratenkriterium]
 Seien $\sum a_k,\; \sum b_k$ zwei Reihen \\
@@ -1315,7 +1424,13 @@ Zu jeder noch so kleinen Umgebung $U_{f(x)}$ kann man eine kleine Umgebung $U(x)
 
 Diese Definition ist viel nützlicher, um Stetigkeit nachzuweisen, da man mit der Folgendefinition jeden einzelnen Punkt und jede Folge zeigen müsste, was kaum möglich ist. \\
 
+\myItem[Gleichmäßige Stetigkeit] 
 
+Eine Funktion $f:D \rightarrow \mathbb{R} $ heißt gleichmäßig stetig in $ D$, wenn Folgendes gilt: \\
+$$\forall \varepsilon > 0 \exists \delta > 0 \textit{ , sodass } |f(x)-f(x_0)| < \varepsilon \; \forall x \in D mit |x-x_0| < \delta $$
+
+Der Unterschied zur normalen Stetigkeit ist lediglich, dass $\delta$ nicht mehr von $x_0$ abhängen darf. Dies bedeutet graphisch, dass wenn ich eine feste Epsilon Distanz zwischen zwei Bildpunkten habe ( $f(x)$, also Funktionswerte) und dann bekomme ich ein Delta, was mein Abstand zwischen meinen x-Werten ist, welches mir garantiert, dass meine Bildpunkte dort drin liegen. Das ist normale Stetigkeit. \\
+Wenn ich nun beliebige andere Bildpunkte nehmen kann, die eine Epsilon Distanz auseinander liegen und das Delta muss sich nicht verändern, sondern bleibt gleich, dann ist die Funktion gleichmäßig stetig. \\
 
 
 

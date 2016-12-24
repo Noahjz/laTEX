@@ -1021,6 +1021,170 @@ $GL(n,k):=\{A \in M(n \times n,K) | A ist invertierbar\}$
 
 Es ist durch die reguläre Addition und die Matrizenmultiplikation definiert. \\
 
+\newpage 
+
+\section*{Summen von Untervektorräumen}
+\addcontentsline{toc}{section}{§11 Summen von Untervektorräumen}
+
+\myItem[Disclaimer:]
+Viele triviale Definition mit vielen Indizes etc. sind hier ausgelassen worden und wurden auf Papier niedergeschrieben. Besonders von 10.4 bis 11.8\\
+
+\myItem[Satz 11.8] 
+V endlichdim. K-VR, $U_1,...,U_r \subseteq \in V$ UVR \\
+Dann sind äquivalent: \\
+
+\begin{enumerate}
+\item $V= U_1 \oplus ... \oplus U_r$ \\
+\item Für alle Basen $B_i=(v_1^{(i)},...,v_{s_i}^{(i)})$ von $U_i$, $i=1,...,r$ ist 
+$$ B:=(v_1^{(i)},...,v_{s_i}^{(i)}, v_1^{(r)},...,v_{s_r}^{(r)}) $$
+eine Basis von V. \\
+\item Es gibt Basen $B_i=(v_1^{(i)},...,v_{s_i}^{(i)})$ von $U_i$, $i=1,...,r$ ist 
+$$ B:=(v_1^{(i)},...,v_{s_i}^{(i)}, v_1^{(r)},...,v_{s_r}^{(r)}) $$
+sodass B wieder eine Basis von V ist. \\
+\item $V= U_1+...+U_r$, dann $dim(V)=dim(U_1)+...+dim(U_r)$ \\
+\end{enumerate}
+
+\myItem[Satz 11.9] $U \subseteq V$ UVR\\
+Dann ex. ein UVR $W \subseteq V$ mit $V = U \oplus W$ \\
+W heißt ein Komplement zu in V. \\
+
+Anmerkung: \\ W wie in 11.9 ist im allg. nicht eindeutig bestimmt: \\
+z.B.: $$K=\mathbb{R},V=\mathbb{R}^2, U=Lin((e_1)) \rightarrow V=U \oplus Lin((e_2)) = U \oplus Lin((1,1))$$ \\
+
+\section*{Lineare Abbildungen}
+\addcontentsline{toc}{section}{Lineare Abbildungen}
+
+In diesem Kapitel sei K stets ein Körper und $U,V$ und $W$ stets K-VR.
+
+\myItem[Def. 12.1] $f:V \rightarrow W$ Abb. \\
+$f$ heißt K-lineare Abbildung (Homomorphismus von K-VR, kurz: Lineare Abbildung)  \\
+$\Leftrightarrow$ Die folgenden Bedingungen sind erfüllt: \\
+\begin{enumerate}
+\item $f(u+v)=f(u)+f(v)$ für alle $u,v \in V $ \\
+Man muss etwas aufpassen, wozu die Strukturen gehören. Das erste Plus ist die Addition in V, das zweite dann das in W. \\
+\item $f(\lambda v )= \lambda f(v)$ für alle $v\in V, \lambda \in K$ \\
+Wieder aufpassen, wozu die Strukturen gehören. \\
+
+\end{enumerate}
+
+\newpage
+
+\myItem[Bemerkung 12.3] $f:V \rightarrow W$ lin. Abb. 
+Dann gilt: \\
+\begin{enumerate}
+\item $f(0)=0$ \\
+\item $f(\lambda_1 v_1+ \lambda_2 v_2)= \lambda_1 f(v_1) + \lambda_2 f(v_2)$ \\
+\item $ V' \subseteq V \; UVR \Rightarrow f(V') \subseteq W $ ist UVR \\
+\item $W'\subseteq W \; UVR \Rightarrow f^{-1} (W') \subseteq V$ ist UVR \\
+\item $(v_i)_{i \in I}$ lin. abh. Familie in $V \Rightarrow f((v_i)_{i \in I})$ lin abh.
+Familie in W \\
+\item $V' = Lin((v_i)_{i \in I}) \Rightarrow f(V')=Lin((f((v_i)_{i \in I}))$ \\
+\item W endlichdim. $\Rightarrow f(v)$ endlichdim. UVR von W mit dim$f(V) \leq dim(W)$ 
+\end{enumerate}
+
+\myItem[Bemerkung 12.4]$f:V \rightarrow W, g:U\rightarrow V$ lin. Abb.\\
+Dann ist $f\circ g:U \rightarrow W eine lin. Abbildung$ \\
+
+\myItem[Def. 12.5]
+$$Hom_k (V,W):=\{f: V \rightarrow W| f \textit{ ist K-linear }\}$$ 
+Ist also die Menge aller Vektorraumhomomorphismen oder in anderen Worten die Menge aller linearen Abbildungen. \\
+Die gleiche Menge, welche aber nur Abbildungen auf sich selbst zulässt, heißt ein Endomorphismus von V\\
+$$End_k (V):=\{f:V \rightarrow V| \textit{f ist Endomorphismus} \} = Hom_k (V,V)$$
+
+\myItem[12.6] Man kann wieder Strukturen auf diesen Mengen definieren ( also einen $K_VR$ ).Es gilt: \\
+(a) $Hom_k (V,W)$ ist bzgl. \\
+$+:Hom_k (V,W) \times Hom_k (V,W) \rightarrow Hom_k (V,W), (f,g) \mapsto f+g $\\
+mit $(f+g)(v):=f(v)+g(v) $ für $v\in  V$ Es ist also punktweise definiert \\ 
+$*:K \times Hom_k (V,W) \rightarrow Hom_k (V,W), (\lambda,f)\mapsto \lambda f$ \\
+mit $(\lambda f)(v):= \lambda f(v)$ für $v\in V$ ein K-VR \\
+Nullvektor ist die Nullabb. $0: V\rightarrow W $ mit $0(v)=0$ für alle $v\in V$ \\
+
+(b)$End_k (V)$ ist bzgl. \\
+$+: End_k (V) \times End_k (V) \rightarrow End_k (V), (f,g) \mapsto f+g$\\
+$\circ: End_k (V) \times End_k (V) \rightarrow End_k (V), (f,g) \mapsto f \circ g$\\
+
+ein Ring, Einselement ist $id_V$ \\
+
+Der Beweis folgt durch nachrechnen. \\
+
+\myItem[Def.12.7]
+Eine bijektive K-lin. Abb. $f: V \rightarrow W$ heißt ein Isomorphismus von V nach W. \\
+Eine bijektive K-lin Abb. $f: V \rightarrow V$ heißt ein Automorphismus von V. \\
+Die Mengen dieser Abb. sind dann wieder wie in Def. 12.6 $Iso_k$ und $Aut_k$ \\
+
+\myItem[Bem.12.8]$f: V \rightarrow W$ lin. Abb \\
+Dann gilt: Ist $f$ ein Isomorphismus, dann ist auch $f^{-1}: W \rightarrow V $ ein Isomorphismus. \\
+Existiert zwischen V und W ein Isomorphismus, dann nennen wir $V,W$ isomorph. \\
+
+Existiert zwischen V und W ein Isomorphismus, dann nennen wir $V,W$ isomorph $$ (Notation V\tilde{=}W)$$
+
+Beweis analog zu 5.23(c) \\
+
+\myItem[Def.12.9] $f: V \rightarrow W$ lin. Abb \\
+
+$im(f):= f(V)$ heißt das Bild von f  \\
+$ker(f):=f^{-1}(\{ 0 \})=\{v \in V|\; f(v) = 0 \} $ heißt der Kern von f. \\
+
+\myItem[Bem.12.10]$f: V \rightarrow W$ lin. Abb.
+Dann gilt: \\
+\begin{enumerate}
+\item $im(f) \subseteq W$ und $ker(f)\subseteq V$ sind UVR \\
+\item $f$ surjektiv $\Leftrightarrow im(f) = W $ \\
+\item $f$ injektiv $\leftrightarrow ker(f)=\{0\}$ \\
+\item $f$ injektiv und $(v_i)_{i\in I}$ lin. unabh. Fam. in $ V \Rightarrow $ $f((v_i)_{i\in I})$ ist lin. unabh. \\
+\end{enumerate}
+
+\myItem[12.11] $f: V \rightarrow W$ lin. Abb. \\
+Rang$(f):=dim(im(f))$ heißt der Rang von $f$ \\
+
+Beispiel: \\
+$A \in M(m\times n,K)$
+WIr bretrachten die zu A. geh lin, Abb $\tilde{A}: K^n \rightarrow K^m, x \mapsto Ax$ \\
+Wegen $K^n=Lin((e_1,...,e_n))$ folgt aus $12.3(f):$ in $\tilde{A}= Lin((\tilde{A}(e_1),..,\tilde{A}(e_n)))$ \\
+Nach 12.2(a) sind $\tilde{A}(e_1),..,\tilde{A}(e_n)$ genau die Spalten von A,d.h.: \\
+Rang$(\tilde{A})=dim(im(\tilde{A})) = dim SR(A) = Spaltenrang (A) $\\
+
+Wir setzen Rang(A)$:= Rang(\tilde{A}=Spaltenrang(A)$ \\
+
+\newpage 
+
+\myItem[Satz 12.13] Dimensionsformel für lin. Abb \\ 
+
+V endlichdim. K-VR , $f: V \rightarrow W$ lin. Abb. \\
+
+$(v_1 ,..., v_k)$ Basis von $ker(f)$, $(w_1,...,w_r)$ Basis von $im(f)$ \\
+Beachte; $im(f)$ endlichdim. wegen 12.3(f) \\
+Für $i=1,...,r$ sei $u_i\in V$ mit $f(u_i)=w_i$ \\
+Dann ist $$ A:=(u_1,...,u_r,v_1,...,v_k) $$ 
+eine Basis von V. Insbes. ist \\
+$$ dim(V)=dim(ker(f))+dim(im(f)) $$ 
+
+\myItem[12.14]
+
+V,W endlichdim. K-VR  \\
+Dann sind äquivalent \\
+\begin{enumerate}
+\item $V \tilde{=} W$ \\
+\item dim(V) = dim(W) \\
+\end{enumerate}
+
+\myItem[Folgerung 12.15]  $n,m \in \mathbb{N}$  \\
+Dann gilt $K^n \tilde{=} K^m \Leftrightarrow n=m$ 
+
+\myItem[Folgerung 12.16] V endl. dim. K-VR. Dann gilt \\
+Es ex. $n \in \mathbb{N}_{0}$ mit $K^n \tilde{=} V$ \\
+
+Man setzt $n:= dim(V)$ und ist fertig. 
+
+\myItem[Folgerung 12.17] V,W endlichdim. K-VR mit $dim(V)=dim(W)$\\
+$f: V \rightarrow W$ lin. Abb. Dann sind äquivalent \\
+
+\begin{enumerate}
+\item $f$ injektiv \\
+\item $f$ surjektiv \\
+\item $f$ bijektiv
+\end{enumerate}
+
 
 
 
