@@ -1,0 +1,139 @@
+\documentclass[headsepline,12pt,a4paper]{scrartcl}
+\usepackage{amsmath, amssymb}
+\linespread{1.3}
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc} 
+\usepackage{times}
+\setlength{\parindent}{0cm}
+\usepackage[utf8]{inputenc}
+\usepackage{physics}
+
+\makeatletter
+\def\myItem{%
+   \@ifnextchar[ \@myItem{\@noitemargtrue\@myItem[\@itemlabel]}}
+\def\@myItem[#1]{\item[#1]\mbox{}\\}
+\makeatother % Wir definieren uns hier eine sauberere myItem Funktion als \item[]
+
+\makeatletter
+\def\myItemc{%
+   \@ifnextchar[ \@myItem{\@noitemargtrue\@myItem[\@itemlabel]}}
+\def\@myItemc[#1]{\item[#1]\mbox{}\\}
+\makeatother % My Item, aber automatisch gecentert // funktioniert noch nicht so wirklich
+
+\begin{document}
+
+\begin{titlepage}
+	\centering
+	{\huge\bfseries Analysis 1\par}
+	\vspace{2cm}
+	{\Large\itshape Noah J. Zimmermann\par}
+	\vfill
+	Teil\par
+	 \textsc{II}
+
+	\vfill
+
+% Bottom of the page
+	{\large Wintersemester 2016/17\par}
+\end{titlepage}
+
+\tableofcontents
+
+\newpage
+
+\section*{Raum reelwertiger stetiger Funktionen}
+\addcontentsline{toc}{section}{Raum reelwertiger stetiger Funktionen}
+
+\begin{itemize}
+
+\myItem[Raum reelwertiger stetiger Funktionen]
+
+$$ C(\mathbb{K}):=\{f:\mathbb{K} \rightarrow \mathbb{R} | f \textit{ ist stetig auf } \mathbb{K}\} $$
+
+ist der Raum reelwertiger stetiger Funktionen auf $\mathbb{K}$ \\
+
+Bemerkung: \\
+
+Seien $f,g \in C(\mathbb{K}), \lambda \in \mathbb{R}$. Dann ist auch $f+g$, $f\cdot g$, $\lambda f$ wieder eine Funktion aus $C(\mathbb{K}). C(\mathbb{K})$ bildet dann einen Ring. \\
+
+\myItem[Definition] Seien $f,g:\mathbb{K} \rightarrow \mathbb{R}$ \\
+
+$\max\limits_{x\in \mathbb{K}}(f,g)(x):= \max\limits_{x\in \mathbb{K}}(f(x),g(x))$ \\
+
+Analog für das Minimum. Dies ist lediglich Notation. \\
+
+\myItem[Satz]
+
+$\max (f,g)$ und $\min (f,g)$ sind in $C(\mathbb{K})$ für $f,g \in C(\mathbb{K}$ \\
+
+Man stelle sich einfach vor, dass man eine $|f|$ als Komposition mit $f$ darstellen kann und dann ist $|f|$ wieder stetig. \\
+
+Außerdem gilt: $min(f,g)= -max(-f,-g)$ \\
+
+und dann definiert man $$ |f|_{\infty} := \max|f(x)| $$\\
+
+\section*{Norm}
+\addcontentsline{toc}{section}{Norm}
+
+\myItem[Norm]
+
+Sei $\mathbb{K}$ ein Körper (mit dem Betrag ||), sei $V$ ein VR über $\mathbb{K}$. \\
+
+$\| \cdot \|: V \rightarrow \mathbb{R}$
+
+heißt eine Norm auf $V$ genau dann wenn: \\
+
+\begin{enumerate}
+
+\item Definitheit: \\
+
+$\forall x \in V  : \| x \| \geq 0 \wedge (\| x \| = 0 \Leftrightarrow x = 0) $\\
+
+\item Homogenität: \\
+
+$\forall x \in V: \alpha \in \mathbb{K} \; \; \| \alpha x \| = |\alpha | = \| x \|$ \\
+
+\item Dreiecksungleichung: \\
+
+$\forall x,y \in V: \| x+y \| \leq \| x \| + \| y \|$ \\
+
+
+\end{enumerate}
+
+$(V, \| \|)$ heißt normierter Vektorraum. \\
+
+\newpage
+
+\myItem[Beispiel für normierte Vektorräume]
+$C([a,b])$ nach $\mathbb{R}_0^{+}$ ist demnach ein Vektorraum. ( Einfach nachrechnen )  \\
+
+Man definiert eine \textbf{Normkonvergenz}
+
+$$ f_n \xrightarrow[n \rightarrow \infty] f $$ in Norm das gleiche wie $$\| f- f_n\| \xrightarrow[n \rightarrow \infty] 0 $$
+
+Demnach ist die Konvergenz ist Norm mit der gleichmäßigen Konvergenz gleichzusetzen, weil die Funktionen ja praktisch keinen Unterschied mehr haben, da sie sich 0 annähern und da es von $x$ unabhängig ist, somit ist es nicht nur punktweise ( von $x$ abhängig ) sondern gleichmäßig ( von $x $ unabhängig ) konvergent. \\
+
+\myItem[Lemma]
+
+Somit gilt:
+
+Für eine Funktionenfolge $(f_n)_{n \in \mathbb{N}} \in C([a,b])$ ist die gleichmäßige Konvergenz gegen eine Grenzfunktion $f: [a,b] \rightarrow \mathbb{R}$ gleichbedeutend mit $\| f- f_n\| \xrightarrow[n \rightarrow \infty] 0$
+
+\myItem[Cauchy Konvergenz von Funktionenfolgen]
+
+Man kann die Cauchykonvergenz auch auf Funktionenfolgen anwenden: \\
+Eine Funktionenfolge $(f_n)_{n \in \mathbb{N}} \in C([a,b])$ heißt Cauchy Folge, wenn
+
+$$ \forall \varepsilon \; \exists n_\varepsilon \in \mathbb{N} \; : n,m \geq n_\varepsilon 
+\Rightarrow \| f_m- f_n\| < \varepsilon $$
+
+Dann ist jede konvergente Folge wieder eine Cauchy Folge. Der Beweis folgt analog zu den Zahlenfolgen. \\
+
+
+
+
+\end{itemize}
+
+\end{document}
+
+

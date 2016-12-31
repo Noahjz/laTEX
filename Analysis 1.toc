@@ -2,27 +2,30 @@
 \contentsline {section}{Logik}{4}
 \contentsline {section}{Tipps zu Beweisen ( z.B. Umformungen )}{7}
 \contentsline {section}{Mengenlehre}{8}
-\contentsline {section}{Zahlenbereiche}{11}
-\contentsline {subsection}{Gr\IeC {\"o}\IeC {\ss }tes, kleinstes Element}{16}
-\contentsline {subsection}{Schranken}{19}
-\contentsline {subsection}{Supremum}{19}
-\contentsline {subsection}{Dreiecksungleichung}{23}
-\contentsline {subsection}{Monotonie}{24}
-\contentsline {subsection}{Binomialkoeffizient}{25}
-\contentsline {subsection}{Bernoullische Ungleichung}{29}
-\contentsline {subsection}{Komplexe Zahlen}{30}
-\contentsline {subsection}{Trigonometrische Funktionen}{34}
-\contentsline {section}{Zahlenfolgen und Reihen}{37}
-\contentsline {subsection}{Konvergenz}{38}
-\contentsline {subsection}{Cauchy Folgen}{41}
-\contentsline {subsection}{H\IeC {\"a}ufungswerte}{45}
-\contentsline {subsection}{Satz von Bolzano Weierstrass}{49}
-\contentsline {subsection}{Rechenregeln f\IeC {\"u}r Grenzwerte von Folgen}{50}
-\contentsline {subsection}{Zusammenfassung: Konvergenzkriterien}{51}
-\contentsline {subsection}{Geometrische Folge 2.16}{51}
-\contentsline {subsection}{Umgebung 2.19}{52}
-\contentsline {subsection}{Summenregeln ( Rechenregeln )}{53}
-\contentsline {section}{Reihen ( Unendliche Summen )}{54}
-\contentsline {subsection}{Konvergenzkriterien f\IeC {\"u}r Reihen}{55}
-\contentsline {subsection}{Potenzreihen}{60}
-\contentsline {section}{Grenzwerte und Stetigkeit}{62}
+\contentsline {subsection}{Offene Intervalle / Mengen / Kompaktheit}{11}
+\contentsline {section}{Zahlenbereiche}{13}
+\contentsline {subsection}{Gr\IeC {\"o}\IeC {\ss }tes, kleinstes Element}{17}
+\contentsline {subsection}{Schranken}{20}
+\contentsline {subsection}{Supremum}{20}
+\contentsline {subsection}{Dreiecksungleichung}{24}
+\contentsline {subsection}{Monotonie}{25}
+\contentsline {subsection}{Binomialkoeffizient}{26}
+\contentsline {subsection}{Bernoullische Ungleichung}{30}
+\contentsline {subsection}{Komplexe Zahlen}{31}
+\contentsline {subsection}{Trigonometrische Funktionen}{35}
+\contentsline {section}{Zahlenfolgen und Reihen}{38}
+\contentsline {subsection}{Konvergenz}{39}
+\contentsline {subsection}{Cauchy Folgen}{42}
+\contentsline {subsection}{H\IeC {\"a}ufungswerte}{46}
+\contentsline {subsection}{Satz von Bolzano Weierstrass}{50}
+\contentsline {subsection}{Rechenregeln f\IeC {\"u}r Grenzwerte von Folgen}{51}
+\contentsline {subsection}{Zusammenfassung: Konvergenzkriterien}{52}
+\contentsline {subsection}{Geometrische Folge 2.16}{52}
+\contentsline {subsection}{Umgebung 2.19}{53}
+\contentsline {subsection}{Summenregeln ( Rechenregeln )}{54}
+\contentsline {section}{Reihen ( Unendliche Summen )}{55}
+\contentsline {subsection}{Konvergenzkriterien f\IeC {\"u}r Reihen}{56}
+\contentsline {subsection}{Potenzreihen}{61}
+\contentsline {section}{Grenzwerte und Stetigkeit}{63}
+\contentsline {subsection}{Eigenschaften stetiger Funktionen}{67}
+\contentsline {subsection}{Funktionenfolgen}{68}

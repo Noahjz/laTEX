@@ -1,0 +1,3 @@
+\select@language {ngerman}
+\contentsline {section}{Raum reelwertiger stetiger Funktionen}{3}
+\contentsline {section}{Norm}{4}

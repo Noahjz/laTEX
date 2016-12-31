@@ -28,8 +28,8 @@
 	\vspace{2cm}
 	{\Large\itshape Noah J. Zimmermann\par}
 	\vfill
-	supervised by\par
-	 \textsc{x}
+	Teil\par
+	 \textsc{I}
 
 	\vfill
 
@@ -243,12 +243,47 @@ Das kartesische Produkt mit der leeren Menge ergibt wieder die leere Menge, da k
 
 Es gilt keine Kommutivitaet (  $ A x B \neq B x A $ ), und keine Assoziativitaet.
 
+\subsection*{Offene Intervalle / Mengen / Kompaktheit}
+\addcontentsline{toc}{subsection}{Offene Intervalle / Mengen / Kompaktheit}
+
 \begin{center}
 \myItem[Abgeschlossene und offene Intervalle]
 \end{center}
  Abgeschlossen sind Intervalle der Form $[a,b]$ , wo gilt $[a,b]:= \{x\in \Re : a \leq x \leq b\}$
  Offen sind Intervalle der Form $(a,b)$ , wo gilt $(a,b):= \{x\in \Re : a < x < b\}$
  Kompakt nennen wir Intervalle, wenn sie abgeschlossen und beschraenkt sind. Also alle abgeschlossenen bis auf $ [3,\infty] $
+
+
+
+\myItem[Offene Mengen]
+
+Im gleichen Sinne kann man auch über offene Mengen sprechen. Umgangssprachlich ist eine offene Menge, eine Menge in welcher alle Elemente in dieser Menge nur von Elementen mit gleichen Eigenschaften umgeben sind. \\
+Beispielsweise ist in der Menge $M = \{x\in \mathbb{R} | \; 0 < x < 1 \}$ jedes $x$ nur von Zahlen mit der gleichen Eigenschaft umgeben. Für das Intervall ( was ja eine Spezifizierung einer Menge ist, $[0,1] $ liegen die beiden Zahlen ja auf dem Rand, und dann ist sie abgeschlossen. \\
+
+Man nennt also die Komplementärmenge einer offenen Menge eine abgeschlossene Menge. \\
+Abgeschlossen bedeutet, sie enthält alle ihre Häufungspunkte \\
+
+Offensichtlich hängt dies auch von dem Raum ab (z.B.$ \mathbb{Q}$ oder $\mathbb{R}$ ). \\
+
+Weiterhin können Mengen offen und abgeschlossen sein, z.B. $[0,1)$ \\
+
+Also merken: \\
+
+
+\textbf{Eine abgeschlossene Menge enthält alle ihre Häufungspunkte und das Komplement dieser ist offen.} \\
+
+\textbf{Eine Menge heißt offen, wenn es zu jedem $x \in M$ eine $\varepsilon$ Umgebung $U = U_\varepsilon(x)$ gibt, die komplett in M liegt : $U \subset M$} \\
+
+\myItem[Kompaktheit]
+
+Eine Menge ist kompakt, genau dann wenn sie abgeschlossen und beschränkt ist. \\
+
+Eigenschaften: \\
+\begin{enumerate}
+\item Eine kompakte Menge darf keine Folge enthalten, die konvergiert und einen Grenzwert außerhalb der kompakten Menge hat. \\
+\item jede Folge aus der Menge besitzt eine konvergene Teilfolge, die ihren Grenzwert in der Menge hat ( nach Bolzano Weierstrass Satz) 
+\item $\mathbb{R}$ ist folgenkompakt
+\end{enumerate}
 
 \end{itemize}
 
@@ -1397,6 +1432,20 @@ $$\textit{exp}(1)= \sum\limits_{k=0}^{\infty} \frac{1}{k!} = \lim\limits_{n \rig
 \section*{Grenzwerte und Stetigkeit}
 \addcontentsline{toc}{section}{Grenzwerte und Stetigkeit}
 
+\myItem[Fortsetzung von Funktionen  ( Aus VL )]
+
+Man betrachte einen Funktion $\tilde{f}$, die für $0$ nicht definiert ist. \\
+
+Dann sucht man $\tilde{f} | \mathbb{R}\backslash \{0\} = f$ \\
+
+Der Abschluss ist dann die Ergänzung zu dem unfertigen Definitionsbereich, wo dann entweder der Wert selbst im Abschluss liegt oder $x$ ein HP einer Folge ist 
+
+$$\begin{aligned}
+\tilde{D}&= \{x \in K | x \in D \textit{ oder x ist HP von D }\} \\
+&= \{x \in K | \exists \; (x_n)_{n \in \mathbb{N}} \subseteq D \lor x = \lim \limits_{n \rightarrow 0} x_n\} \\
+\end{aligned} $$
+
+
 \myItem[Grenzwerte von Funktionen]
 
 Es sei $D \subset \mathbb{R} $ und eine Funktion $f:D \rightarrow \mathbb{R} $ 
@@ -1405,6 +1454,14 @@ $$\bar{D}:= \{a \in \mathbb{R} : \exists \textit{ Folge } (x_n)_{n \in \mathbb{N
 
 Das bedeutet, $\bar{D}$ ist der Abschluss von D, wo D die Definitionsmenge ist. Dieser Abschluss beinhaltet auch alle möglichen Grenzwerte von Folgen, die alle ihre Glieder in dem regulären $D$ haben. ( Für $1/x$ zum Beispiel $0 \in \bar{D}$) \\
 
+\myItem[Bemerkung]
+
+\begin{enumerate}
+\item Falls ein Grenzwert existiert, ist er eindeutig. \\
+\item Grenzwertregeln funktionieren wie gewohnt. \\
+\item Man kann sich Stellen einer Funktionen von beiden Seiten annähern, sogenannte linksseitige und rechtsseitige Grenzwerte. 
+\end{enumerate}
+
 \myItem[Stetigkeit Folgendefinition]
 Eine Funktion $f:D \rightarrow \mathbb{R} $ heißt stetig in $x_0 \in D$, wenn Folgendes gilt: \\
 Für $$\lim\limits_{x \rightarrow x_0} f(x) = f(x_0) $$
@@ -1412,6 +1469,8 @@ Gilt dies für jedes $x \in D$, dann ist die Funktion stetig. \\
 Das bedeutet einfach nur, dass man wenn man sich einem $f(x_0)$ graphisch annähert, man nicht auf einmal beim richtigen Einsetzen $f(x_0)$ ganz woanders landet. \\
 
 Dies bietet sich auch immer an, um zu zeigen dass eine Funktion \textbf{nicht stetig} ist. \\
+
+
 
 \myItem[$\varepsilon - \delta $Definition der Stetigkeit]
 Eine Funktion $f:D \rightarrow \mathbb{R} $ heißt stetig in $x_0 \in D$, wenn Folgendes gilt: \\
@@ -1424,13 +1483,125 @@ Zu jeder noch so kleinen Umgebung $U_{f(x)}$ kann man eine kleine Umgebung $U(x)
 
 Diese Definition ist viel nützlicher, um Stetigkeit nachzuweisen, da man mit der Folgendefinition jeden einzelnen Punkt und jede Folge zeigen müsste, was kaum möglich ist. \\
 
+\begin{center}
 \myItem[Gleichmäßige Stetigkeit] 
+\end{center}
 
 Eine Funktion $f:D \rightarrow \mathbb{R} $ heißt gleichmäßig stetig in $ D$, wenn Folgendes gilt: \\
 $$\forall \varepsilon > 0 \exists \delta > 0 \textit{ , sodass } |f(x)-f(x_0)| < \varepsilon \; \forall x \in D mit |x-x_0| < \delta $$
 
 Der Unterschied zur normalen Stetigkeit ist lediglich, dass $\delta$ nicht mehr von $x_0$ abhängen darf. Dies bedeutet graphisch, dass wenn ich eine feste Epsilon Distanz zwischen zwei Bildpunkten habe ( $f(x)$, also Funktionswerte) und dann bekomme ich ein Delta, was mein Abstand zwischen meinen x-Werten ist, welches mir garantiert, dass meine Bildpunkte dort drin liegen. Das ist normale Stetigkeit. \\
 Wenn ich nun beliebige andere Bildpunkte nehmen kann, die eine Epsilon Distanz auseinander liegen und das Delta muss sich nicht verändern, sondern bleibt gleich, dann ist die Funktion gleichmäßig stetig. \\
+
+Das bedeutet also $\delta$ kann gleichmäßig für alle Punkte $x \in D$ gewählt werden. \\
+
+\begin{center}
+\myItem[Verneinung: Gleichmäßige Stetigkeit] 
+\end{center}
+
+Diese ist interessant z.B. für Satz von Heine: \\
+
+Es gibt ein $\varepsilon_0$, sodass zu jedem $\delta >0$ zwei Punkte $|x-y|< \delta$ folgt $|f(x)-f(y)|\geq \varepsilon_0$ \\
+
+
+\myItem[Lemmas zur Stetigkeit]
+\begin{enumerate}
+\item Ist f stetig, dann auch die Einschränkung $f|_T$ \\
+\item Die Funktionsverknüpfung von zwei stetigen Funktionen ist wieder stetig. \\
+\item Sind $f,g:D \rightarrow K$ stetig, so auch $f+g, \; f \cdot g:D \rightarrow K$ 
+\end{enumerate}
+
+\begin{center}
+\myItem[Lipschitz Stetigkeit] 
+\end{center}
+
+Eine Funktion $f:D \rightarrow \mathbb{K}$ heißt Lipschitz stetig ( auch L-stetig ) auf D, wenn 
+$\exists L>0$ (Lipschitz Konstante),sodass 
+
+$$ |f(x)-f(y)| \leq L\cdot |x-y| \forall x,y \in D$$
+
+Bemerkung: \\
+Menge von stetigen Funktionen $\subset$ Menge von gleichmäßig stetigen Funktionen $\subset$ Menge der Lipschitz Funktionen
+
+\begin{center}
+\myItem[Satz der gleichmäßigen Stetigkeit]
+\end{center}
+
+Eine auf einer beschränkten, abgeschlossenen ( das heißt kompakt ) Teilmenge $D \subseteq \mathbb{K}$ stetige Funktion ist gleichmäßig stetig. \\ Beweis unbedingt im Buch und nicht im Skript nachgucken. \\
+
+Bemerkung: Beim Zeigen der Lipschitzstetigkeit, ist es oft sinnvoll, sich den beschränkten Bereich anzugucken und das $L$ dann geeignet zu wählen. \\
+
+Lipschitz Stetigkeit impliziert gleichmäßige Stetigkeit, aber nicht andersherum. \\
+
+\myItem[Bemerkung]
+
+Stetigkeit kann interpretiert werden als "lokale Approximation" durch Konstanten, das heißt, dass Funktion $f$ nach der Stelle $x_0$ durch eine Konstante $f(x_0)$ approximiert werden kannn und die Fehler der Approximation 
+gerade $|f(x)-f(x_0)|<\varepsilon$ \\
+
+\subsection*{Eigenschaften stetiger Funktionen}
+\addcontentsline{toc}{subsection}{Eigenschaften stetiger Funktionen}
+
+\begin{center}
+\myItem[Satz von Beschränktheit]
+\end{center}
+
+Eine auf einer beschränkten, abgeschlossenen Teilmenge $D \subseteq \mathbb{K}$ stetige Funktion 
+$f:D \rightarrow \mathbb{K}$ ist beschränkt, d.h. es existiert ein $K > 0$ sodass 
+$sup_{x\in D} |f(x)| \leq K$ \\
+
+\myItem[Satz vom Extremum]
+
+Eine auf einer beschränkten, abgeschlossenen Teilmenge $D \subseteq \mathbb{K}$ stetigen reelwertigen Funktion
+$f:D\rightarrow K$ besitzt dort ein Maximum und ein Minimum, d.h. : \\
+
+$$ \exists x_{min},x_{max} \in D : \sup\limits_{x\in D} f(x) = f(x_{max}) \wedge \inf\limits_{x\in D} f(x) = f(x_{min}) $$
+
+\myItem[Zwischenwertsatz]
+Sei $f:[a,b] \rightarrow \mathbb{R}$ eine reele stetige Funktion. Dann gibt es zu jedem $y \in [f(a),f(b)]$ ein $x \in [a,b]$ mit $f(c)=y$
+
+
+\myItem[Bemerkung]
+
+Die Eigenschaften von stetigen Funktionen lassen sich zusammen formulieren: Für eine auf einem abgeschlossenen, beschränkten Intervall definierte stetige Funktion ist der Bildbereich wieder ein abgeschlossenens Intervall. \\
+
+\newpage
+
+\myItem[Treppenfunktion]
+
+Dies ist einfach eine Funktion, die auf einem bestimmten $x$ Bereich stückweise konstant ist. Hört sich kompliziert an, ist aber sehr einfach. Man definiert in einem Intervall $[a,b]$ $a=t_0 < t_1 < ... < t_n = b$ \\
+Und dann sagen wir die Funktion ist zwischen diesen Werten jeweils konstant, also von $t_0$ bis $t_1$ etc. \\
+
+Das heißt $f(x) = c_i \; \forall x \in (t_{i-1},t_i)$ \\
+
+Für genauere Erklärung Wikipedia, da gibt es dann auch eine visuelle Darstellung. \\ 
+
+\subsection*{Funktionenfolgen}
+\addcontentsline{toc}{subsection}{Funktionenfolgen}
+
+\myItem[Funktionenfolge]
+Eine Folge von Funktionen nennt man Funktionenfolge. Wir schreiben $(f_n)_{n \in \mathbb{N}}$, wobei $f_n$ mit $n \in \mathbb{N}$ Funktionen sind. \\
+
+\begin{center}
+\myItem[Punktweise Konvergenz]
+\end{center}
+
+Sei X eine nichtleere Menge und seien $f,f_n: X \rightarrow Y$ Abbildungen und $n \in \mathbb{N}$. Die Funktionenfolge $(f_n)_{n \in \mathbb{N}}$ heißt punktweise konvergent gegen $f$, wenn für jedes feste $x \in X$ die Folge $(f_n)(x)_{n \in \mathbb{N}}$ gegen $f(x)$ konvergiert, das heißt: \\
+
+$$ \forall \varepsilon > 0  \; \forall x \in X  \;  \exists n_0 \in \mathbb{N} \; \forall n \geq n_0 : 
+|f_n (x)-f(x)| \leq \varepsilon $$
+
+Beispielsweise konvergiert $f_n(x)= \frac{1}{n}x$ gegen $f(x)=x$ \\
+
+\begin{center}
+\myItem[Gleichmäßige Konvergenz]
+\end{center}
+
+Eine Funktionenfolge $(f_n)_{n \in \mathbb{N}}$ heißt gleichmäßig konvergent gegen $f$, wenn das $n_0$ in der Definition der punktweisen Konvergenz nicht von $x$ abhängt, also wenn gilt (hier ändert sich nur die Reihenfolge der Quantoren und damit die Abhängigkeit. Beispielsweise folgt aus dem Epsilon am Anfang, dass dieses in Unabhängigkeit aller andereren Variablen gewählt werden können muss): \\
+
+$$ \forall \; \varepsilon \;  \exists n_0 \in \mathbb{N} \;  \forall x \in X \forall n \geq n_0 \;  |f_n (x) - f(x)| \leq \varepsilon $$ 
+
+Man beachte, wie nah diese Definitionen an der regulären Konvergenzdefinition anliegen. \\
+
 
 
 
